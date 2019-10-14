@@ -6,8 +6,23 @@ template.innerHTML = `
         }
 
         .result {
-            color: red;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: auto;
+            min-width: 30px;
+            max-wodth: 100px;
+            height: 80px;
+            
+            font-size: 30px;
+            background-color: #f3e6f5;
+            border: 1px solid #666;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
         }
+        
 
         input[type=submit] {
             visibility: collapse;
@@ -15,7 +30,7 @@ template.innerHTML = `
     </style>
     <form>
         <div class="result"></div>
-        <form-input name="message-text" placeholder="Введите сообщеине"></form-input>
+        <form-input name="message-text" placeholder="Сообщение"></form-input>
     </form>
 `;
 
