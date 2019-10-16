@@ -4,15 +4,12 @@ template.innerHTML = `
         input {
             border: 0;
             outline: none;
-            width: calc(100% - 100px);
-            height: 100%;
-            align-items: flex-end;
+            width: calc(100% - 20px);
+            height: 130px;
             padding-left: 20px;
             padding-right: 20px;
-            font-size: 30px;
+            font-size: 35px;
             display: flex;
-            position: relative;
-            top: 20px;
         }
         :host {
             display: inline-block;
@@ -21,9 +18,7 @@ template.innerHTML = `
         .button {
             fill: grey;
             display: flex;
-            align-items: flex-end;
             padding-right: 20px;
-            justify-content: flex-end;
             height: 100%;
             
         }
@@ -60,10 +55,12 @@ class FormInput extends HTMLElement {
     }
 
     get value() {
-        message = this.$input.value;
-        this.$input.value = '';
-        return message;
+        return this.$input.value;
     }
+    set value(value) {
+        this.$input.value = value;
+    }
+
 }
 
 customElements.define('form-input', FormInput);
