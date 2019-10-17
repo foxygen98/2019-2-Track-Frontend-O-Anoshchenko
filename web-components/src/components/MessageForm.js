@@ -86,79 +86,80 @@ template.innerHTML = `
 `;
 
 class MessageForm extends HTMLElement {
-    constructor () {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$form = this._shadowRoot.querySelector('form');
-        this.$input = this._shadowRoot.querySelector('form-input');
-        this.$chat_space = this._shadowRoot.querySelector('.chat_space');
-        this.recover();
-        this.$form.addEventListener('submit', this._onSubmit.bind(this));
-        this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
-    }
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$form = this.shadowRoot.querySelector('form');
+    this.$input = this.shadowRoot.querySelector('form-input');
+    this.$chat_space = this.shadowRoot.querySelector('.chat_space');
+    this.recover();
+    this.$form.addEventListener('submit', this.onSubmit.bind(this));
+    this.$form.addEventListener('keypress', this.onKeyPress.bind(this));
+  }
 
-    _onSubmit (event) {
-        event.preventDefault();
-        if (this.$input.value == '') {
-            return;
-        }
-        this.message = {};
-        this.message.innerText = this.$input.value;
-        this.message.time = new Date();
-        this.new_message(this.message);
-        this.$input.value = '';
-        this.add_message_in_local(this.message);
+  onSubmit(event) {
+    event.preventDefault();
+    if (this.$input.value === '') {
+      return;
     }
+    this.message = {};
+    this.message.innerText = this.$input.value;
+    this.message.time = new Date();
+    this.newMessage(this.message);
+    this.$input.value = '';
+    this.addMessageInLocal(this.message);
+  }
 
-    _onKeyPress (event) {
-        if (event.keyCode == 13) {
-            this.$form.dispatchEvent(new Event('submit'));
-        }
+  onKeyPress(event) {
+    if (event.keyCode === 13) {
+      this.$form.dispatchEvent(new Event('submit'));
     }
+  }
 
-    recover () {
-        var message_history = JSON.parse(localStorage.getItem('key'));
-        if (message_history == null) {
-            return;
-        }
-        for (var i = 0; i < message_history.length; i += 1){
-            this.new_message(message_history[i]);
-        }
+  recover() {
+    const messageHistory = JSON.parse(localStorage.getItem('key'));
+    if (messageHistory == null) {
+      return;
     }
-
-    new_message(message) {
-        const window = document.createElement('div');
-        window.className = 'result';
-        const text = document.createElement('div');
-        text.className = 'message';
-        text.innerText = message.innerText;
-        const time = document.createElement('div');
-        time.className = 'time';
-        var date = new Date(message.time);
-        var min = date.getMinutes();
-        var hours = date.getHours();
-        a = b = '';
-        if (min < 10) {
-            b = '0';
-        }
-        if (hours < 10) {
-            a = '0';
-        }
-        time.innerText = a + `${hours}:` + b + `${min}`;
-        window.appendChild(text);
-        window.appendChild(time);
-        this.$chat_space.appendChild(window);
+    for (let i = 0; i < messageHistory.length; i += 1) {
+      this.newMessage(messageHistory[i]);
     }
+  }
 
-    add_message_in_local(message) {
-        let message_history = JSON.parse(localStorage.getItem('key'));
-        if (message_history == null) {
-            message_history = [];
-        }
-        message_history.push(message);
-        localStorage.setItem('key', JSON.stringify(message_history));
-      }
+  newMessage(message) {
+    const window = document.createElement('div');
+    window.className = 'result';
+    const text = document.createElement('div');
+    text.className = 'message';
+    text.innerText = message.innerText;
+    const time = document.createElement('div');
+    time.className = 'time';
+    const date = new Date(message.time);
+    const min = date.getMinutes();
+    const hours = date.getHours();
+    let a = '';
+    let b = '';
+    if (min < 10) {
+      b = '0';
+    }
+    if (hours < 10) {
+      a = '0';
+    }
+    time.innerText = `${a}${hours}:${b}${min}`;
+    window.appendChild(text);
+    window.appendChild(time);
+    this.$chat_space.appendChild(window);
+  }
+
+  addMessageInLocal() {
+    let messageHistory = JSON.parse(localStorage.getItem('key'));
+    if (messageHistory == null) {
+      messageHistory = [];
+    }
+    messageHistory.push(this.message);
+    localStorage.setItem('key', JSON.stringify(messageHistory));
+  }
 }
 
 customElements.define('message-form', MessageForm);

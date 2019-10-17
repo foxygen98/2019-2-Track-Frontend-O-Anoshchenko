@@ -1,4 +1,9 @@
 {
+  "name": "2019-2-Track-Frontend-O-Anoshchenko",
+  "homepage": "https://foxygen98.github.io/2019-2-Track-Frontend-O-Anoshchenko/",
+  "description": "",
+  "version": "1.0.0",
+  "author": "",
   "private": true,
   "scripts": {
     "lint:js": "eslint .",
@@ -32,12 +37,8 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
   },
-  "name": "web-components",
-  "version": "1.0.0",
   "main": "webpack.config.js",
   "dependencies": {},
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }
