@@ -4,10 +4,9 @@ template.innerHTML = `
     .result {
         position: relative;
         display: flex;
-        flex-direction: column;
         width: auto;
-        min-width: 50%;
-        max-width: 70%;
+        min-width: 10vh;
+        max-width: 55vh;
         height: auto;
         min-height: 85px;
         font-size: 30px;
@@ -42,7 +41,7 @@ template.innerHTML = `
     .message {
         display: flex;
         align-self: flex-start;
-        font-size: 35px;
+        font-size: 30px;
         padding: 15px 10px;
         color: black;
         line-height: 1;
