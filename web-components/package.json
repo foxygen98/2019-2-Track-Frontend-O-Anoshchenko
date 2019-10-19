@@ -38,7 +38,9 @@
     "webpack-dev-server": "^3.8.1"
   },
   "main": "webpack.config.js",
-  "dependencies": {},
+  "dependencies": {
+    "generator-track-mail": "^0.3.0"
+  },
   "keywords": [],
   "license": "ISC"
 }
