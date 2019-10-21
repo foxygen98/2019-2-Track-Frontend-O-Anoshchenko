@@ -75,6 +75,7 @@ class Message extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$message = this.shadowRoot.querySelector('.message');
     this.$time = this.shadowRoot.querySelector('.time');
+    this.$result = this.shadowRoot.querySelector('.result');
   }
 
   get time() {

@@ -18,10 +18,11 @@ template.innerHTML = `
         .button {
             fill: grey;
             display: flex;
+            align-items: center;
             padding-right: 20px;
-            height: 100%;
-            
+            height: 100%;  
         }
+
     </style>
     <input type="text">
         <div class="button">

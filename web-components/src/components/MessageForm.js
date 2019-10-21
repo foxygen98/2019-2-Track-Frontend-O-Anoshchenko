@@ -17,7 +17,13 @@ template.innerHTML = `
                 height: calc(100vh - 260px);
                 overflow-y: auto;
                 will-change: transform;
+        }
 
+        .chat {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
         }
 
         input[type=submit] {
@@ -25,7 +31,7 @@ template.innerHTML = `
         }
 
     </style>
-    <form>
+    <form class="chat">
         <div class="chat_space"></div>
         <form-input name="message-text" placeholder="Сообщение"></form-input>
     </form>
