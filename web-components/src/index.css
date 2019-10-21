@@ -1,0 +1,62 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.08);
+    color: #333;
+    font-size: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.top {
+    display: flex;
+    padding: 10px;
+    height: 130px;
+    background-color: #8E24AA;
+    align-items:center;
+}
+
+.name_and_stat {
+    color: white;
+    position: relative;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 5;
+    align-content: center;
+    justify-content: center;
+}
+
+.name_and_stat h1{
+    font-size: 50px;
+    position: relative;
+    top: 30px;
+}
+
+.settings {
+    display: flex;
+    padding-right: 10px;
+}
+
+.search {
+    display: flex;
+    flex-grow: 0.5;
+}
+
+.return_back {
+    display: flex;
+    flex-grow: 2;
+}
