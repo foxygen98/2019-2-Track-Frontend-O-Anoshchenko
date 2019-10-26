@@ -40,25 +40,32 @@ template.innerHTML = `
 class MessageForm extends HTMLElement {
   constructor() {
     super();
+    this.$chat_list = document.querySelector('chat-list');
+    this.$create_chat = document.querySelector('create-chat');
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$form = this.shadowRoot.querySelector('form');
     this.$input = this.shadowRoot.querySelector('form-input');
     this.$chat_space = this.shadowRoot.querySelector('.chat_space');
-
-    this.$messageHistory = JSON.parse(localStorage.getItem('key')) || [];
-    for (let i = 0; i < this.$messageHistory.length; i += 1) {
-      const newMessage = document.createElement('my-message');
-      newMessage.innerText = this.$messageHistory[i].innerText;
-      newMessage.time = this.$messageHistory[i].time;
-      this.$chat_space.insertBefore(newMessage, this.$chat_space.firstChild);
-    }
+    this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
+    this.recover();
 
     this.$form.addEventListener('submit', this.onSubmit.bind(this));
     this.$form.addEventListener('keypress', this.onKeyPress.bind(this));
   }
 
+  recover() {
+    const id = this.getAttribute('id');
+    for (let i = 0; i < this.$chatHistory[id].messages.length; i += 1) {
+      const newMessage = document.createElement('my-message');
+      newMessage.innerText = this.$chatHistory[id].messages[i].innerText;
+      newMessage.time = this.$chatHistory[id].messages[i].time;
+      this.$chat_space.insertBefore(newMessage, this.$chat_space.firstChild);
+    }
+  }
+
   onSubmit(event) {
+    const id = this.getAttribute('id');
     event.preventDefault();
     if (this.$input.value === '') {
       return;
@@ -78,7 +85,7 @@ class MessageForm extends HTMLElement {
       a = '0';
     }
     message.time = `${a}${hours}:${b}${min}`;
-    this.$messageHistory.push({ innerText: message.innerText, time: message.time });
+    this.$chatHistory[id].messages.push({ innerText: message.innerText, time: message.time });
     this.$chat_space.insertBefore(message, this.$chat_space.firstChild);
     this.$input.value = '';
     this.addMessageInLocal();
@@ -91,10 +98,21 @@ class MessageForm extends HTMLElement {
   }
 
   addMessageInLocal() {
-    if (this.$messageHistory === null) {
-      this.$messageHistory = [];
+    const id = this.getAttribute('id');
+    if (this.$chatHistory[id].messages.length === null) {
+      this.$chatHistory[id].messages = [];
     }
-    localStorage.setItem('key', JSON.stringify(this.$messageHistory));
+    localStorage.setItem('chats', JSON.stringify(this.$chatHistory));
+  }
+
+  static get observedAttributes() {
+    return ['id'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'id' && oldValue !== newValue) {
+      this.recover();
+    }
   }
 }
 

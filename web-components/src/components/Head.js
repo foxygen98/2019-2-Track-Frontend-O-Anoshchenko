@@ -53,6 +53,10 @@ template.innerHTML = `
         font-size: 30px;
         top: 10px;
     }
+
+    .head_of_private_chat {
+        display: none;
+    }
     </style>
 
     <div class="head_of_chat_list">

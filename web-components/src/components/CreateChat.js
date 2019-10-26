@@ -88,6 +88,8 @@ class CreateChat extends HTMLElement {
     this.$last_message = this.shadowRoot.querySelector('.last_message');
     this.$last_post_time = this.shadowRoot.querySelector('.last_post_time');
     this.$last_post_status = this.shadowRoot.querySelector('.last_post_status');
+    this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
+    this.$one_chat.id = this.$chatHistory.length;
 
     this.$one_chat.addEventListener('click', this.openChat.bind(this));
   }
@@ -96,6 +98,7 @@ class CreateChat extends HTMLElement {
     this.$head.headOfChatList.style.display = 'none';
     this.$head.headOfPrivateChat.style.display = 'flex';
     this.$chat_list.style.display = 'none';
+    this.$message.setAttribute('id', this.$one_chat.id);
     this.$message.style.display = 'flex';
   }
 

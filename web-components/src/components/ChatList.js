@@ -33,11 +33,13 @@ class ChatList extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$create_new_chat = this.shadowRoot.querySelector('.create_new_chat');
     this.$space = this.shadowRoot.querySelector('.space');
+    this.$id = 0;
 
     this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
     for (let i = 0; i < this.$chatHistory.length; i += 1) {
       const newChat = document.createElement('create-chat');
-      if (this.$chatHistory.message != null) {
+      newChat.setAttribute('id', i);
+      if (this.$chatHistory[i].message != null) {
         newChat.message = this.$chatHistory[i].messages[this.$chatHistory.message.length - 1];
         newChat.time = this.$chatHistory[i].time[this.$chatHistory.time.length - 1];
         newChat.status = this.$chatHistory[i].status[this.$chatHistory.status.length - 1];
@@ -55,6 +57,7 @@ class ChatList extends HTMLElement {
   userClickOnPen() {
     const chat = document.createElement('create-chat');
     chat.id = this.$chatHistory.length;
+    chat.setAttribute('id', chat.id);
     chat.messages = [];
     this.$chatHistory.push({ id: chat.id, messages: chat.messages });
     this.$space.insertBefore(chat, this.$space.firstChild);
