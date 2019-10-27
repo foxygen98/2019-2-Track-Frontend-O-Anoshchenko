@@ -37,6 +37,7 @@ template.innerHTML = `
     }
   
     .last_post_status {
+      display: none;
       align-self: flex-end;
     }  
     </style>
@@ -80,6 +81,7 @@ class CreateChat extends HTMLElement {
     this.$head = document.querySelector('mes-head');
     this.$chat_list = document.querySelector('chat-list');
     this.$message = document.querySelector('message-form');
+    this.$input = document.querySelector('form-input');
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$one_chat = this.shadowRoot.querySelector('.one_chat');
@@ -89,7 +91,6 @@ class CreateChat extends HTMLElement {
     this.$last_post_time = this.shadowRoot.querySelector('.last_post_time');
     this.$last_post_status = this.shadowRoot.querySelector('.last_post_status');
     this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
-    this.$one_chat.id = this.$chatHistory.length;
 
     this.$one_chat.addEventListener('click', this.openChat.bind(this));
   }
@@ -116,6 +117,24 @@ class CreateChat extends HTMLElement {
 
   set time(time) {
     this.$last_post_time.innerText = time;
+  }
+
+  get status() {
+    return this.$last_post_status;
+  }
+
+  set status(display) {
+    this.$last_post_status = display;
+  }
+
+  static get observedAttributes() {
+    return ['id'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'id' && oldValue !== newValue) {
+      this.$one_chat.id = newValue;
+    }
   }
 }
 

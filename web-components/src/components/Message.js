@@ -86,6 +86,14 @@ class Message extends HTMLElement {
     this.$time.innerText = time;
   }
 
+  get result() {
+    return this.$result;
+  }
+
+  set result(result) {
+    this.$result = result;
+  }
+
   get innerText() {
     return this.$message.innerText;
   }

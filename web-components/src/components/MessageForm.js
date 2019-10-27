@@ -48,14 +48,15 @@ class MessageForm extends HTMLElement {
     this.$input = this.shadowRoot.querySelector('form-input');
     this.$chat_space = this.shadowRoot.querySelector('.chat_space');
     this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
-    this.recover();
 
     this.$form.addEventListener('submit', this.onSubmit.bind(this));
     this.$form.addEventListener('keypress', this.onKeyPress.bind(this));
   }
 
-  recover() {
-    const id = this.getAttribute('id');
+  recover(id) {
+    if (this.$chatHistory[id].messages.length === 0) {
+      return;
+    }
     for (let i = 0; i < this.$chatHistory[id].messages.length; i += 1) {
       const newMessage = document.createElement('my-message');
       newMessage.innerText = this.$chatHistory[id].messages[i].innerText;
@@ -85,7 +86,7 @@ class MessageForm extends HTMLElement {
       a = '0';
     }
     message.time = `${a}${hours}:${b}${min}`;
-    this.$chatHistory[id].messages.push({ innerText: message.innerText, time: message.time });
+    this.$chatHistory[id].messages.push({ innerText: message.innerText, time: message.time, status: 1 });
     this.$chat_space.insertBefore(message, this.$chat_space.firstChild);
     this.$input.value = '';
     this.addMessageInLocal();
@@ -105,13 +106,21 @@ class MessageForm extends HTMLElement {
     localStorage.setItem('chats', JSON.stringify(this.$chatHistory));
   }
 
+  clearHistory() {
+    const mess = this.shadowRoot.querySelector('.chat_space');
+    while (mess.firstElementChild) {
+      mess.removeChild(mess.firstElementChild);
+    }
+  }
+
   static get observedAttributes() {
     return ['id'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'id' && oldValue !== newValue) {
-      this.recover();
+      this.clearHistory();
+      this.recover(newValue);
     }
   }
 }

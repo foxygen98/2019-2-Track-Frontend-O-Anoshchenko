@@ -33,25 +33,28 @@ class ChatList extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$create_new_chat = this.shadowRoot.querySelector('.create_new_chat');
     this.$space = this.shadowRoot.querySelector('.space');
-    this.$id = 0;
 
     this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
+    this.recover();
+
+    this.$create_new_chat.addEventListener('click', this.userClickOnPen.bind(this));
+  }
+
+  recover() {
     for (let i = 0; i < this.$chatHistory.length; i += 1) {
       const newChat = document.createElement('create-chat');
       newChat.setAttribute('id', i);
-      if (this.$chatHistory[i].message != null) {
-        newChat.message = this.$chatHistory[i].messages[this.$chatHistory.message.length - 1];
-        newChat.time = this.$chatHistory[i].time[this.$chatHistory.time.length - 1];
-        newChat.status = this.$chatHistory[i].status[this.$chatHistory.status.length - 1];
+      const messageArray = this.$chatHistory[i].messages;
+      if (messageArray.length > 0) {
+        newChat.message = messageArray[messageArray.length - 1].innerText;
+        newChat.time = messageArray[messageArray.length - 1].time;
+        newChat.status.style.display = 'flex';
       } else {
         newChat.message = '';
         newChat.time = '';
-        newChat.status = '';
       }
       this.$space.insertBefore(newChat, this.$space.firstChild);
     }
-
-    this.$create_new_chat.addEventListener('click', this.userClickOnPen.bind(this));
   }
 
   userClickOnPen() {

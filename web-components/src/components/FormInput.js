@@ -44,6 +44,7 @@ class FormInput extends HTMLElement {
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$input = this.shadowRoot.querySelector('input');
+    this.$button = this.shadowRoot.querySelector('.button');
   }
 
   static get observedAttributes() {
@@ -60,6 +61,14 @@ class FormInput extends HTMLElement {
 
   set value(value) {
     this.$input.value = value;
+  }
+
+  get button() {
+    return this.$button;
+  }
+
+  set button(display) {
+    this.$button = display;
   }
 }
 

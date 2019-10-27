@@ -178,7 +178,6 @@ class MesHead extends HTMLElement {
     this.$head_of_private_chat.style.display = 'none';
     this.$message.style.display = 'none';
     this.$chat_list.style.display = 'flex';
-
   }
 }
 
