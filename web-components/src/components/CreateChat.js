@@ -4,7 +4,6 @@ template.innerHTML = `
     .one_chat {
       display: flex;
       padding: 0px;
-      align-items: center;
     }
   
     .name_and_text {
@@ -21,7 +20,11 @@ template.innerHTML = `
     }
 
     .last_message {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
       color: gray;
+      padding: 5px;
       font-size: 35px;
     }
   

@@ -54,6 +54,7 @@ class MessageForm extends HTMLElement {
   }
 
   recover(id) {
+    this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
     if (this.$chatHistory[id].messages.length === 0) {
       return;
     }
@@ -86,7 +87,11 @@ class MessageForm extends HTMLElement {
       a = '0';
     }
     message.time = `${a}${hours}:${b}${min}`;
-    this.$chatHistory[id].messages.push({ innerText: message.innerText, time: message.time, status: 1 });
+    this.$chatHistory[id].messages.push({
+      innerText: message.innerText,
+      time: message.time,
+      status: 1,
+    });
     this.$chat_space.insertBefore(message, this.$chat_space.firstChild);
     this.$input.value = '';
     this.addMessageInLocal();

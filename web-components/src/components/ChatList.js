@@ -41,6 +41,7 @@ class ChatList extends HTMLElement {
   }
 
   recover() {
+    this.$chatHistory = JSON.parse(localStorage.getItem('chats')) || [];
     for (let i = 0; i < this.$chatHistory.length; i += 1) {
       const newChat = document.createElement('create-chat');
       newChat.setAttribute('id', i);
@@ -65,6 +66,13 @@ class ChatList extends HTMLElement {
     this.$chatHistory.push({ id: chat.id, messages: chat.messages });
     this.$space.insertBefore(chat, this.$space.firstChild);
     this.addChatInLocal();
+  }
+
+  clearHistory() {
+    const chats = this.shadowRoot.querySelector('.space');
+    while (chats.firstElementChild) {
+      chats.removeChild(chats.firstElementChild);
+    }
   }
 
   addChatInLocal() {
