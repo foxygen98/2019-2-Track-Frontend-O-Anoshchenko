@@ -18,10 +18,11 @@ template.innerHTML = `
         .button {
             fill: grey;
             display: flex;
+            align-items: center;
             padding-right: 20px;
-            height: 100%;
-            
+            height: 100%;  
         }
+
     </style>
     <input type="text">
         <div class="button">
@@ -43,6 +44,7 @@ class FormInput extends HTMLElement {
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$input = this.shadowRoot.querySelector('input');
+    this.$button = this.shadowRoot.querySelector('.button');
   }
 
   static get observedAttributes() {
@@ -59,6 +61,14 @@ class FormInput extends HTMLElement {
 
   set value(value) {
     this.$input.value = value;
+  }
+
+  get button() {
+    return this.$button;
+  }
+
+  set button(display) {
+    this.$button = display;
   }
 }
 
