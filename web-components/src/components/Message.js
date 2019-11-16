@@ -4,16 +4,31 @@ template.innerHTML = `
     .result {
         position: relative;
         display: flex;
+        justify-content: flex-end;
         width: auto;
-        min-width: 10vh;
-        max-width: 55vh;
+        min-width: 20vh;
+        max-width: 70vh;
         height: auto;
-        min-height: 85px;
-        font-size: 30px;
+        min-height: 10vh;
         background-color: #f3e6f5;
         border: 1px solid #666;
         margin: 10px 60px 10px 10px;
         border-radius: 3px;
+        opacity: 0;
+        transition: 0.5s;
+        animation: show 0.5s 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes show{
+
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
     
     .result:before {
@@ -24,7 +39,7 @@ template.innerHTML = `
         right: -30px;
         bottom: -1px;
         border: 15px solid;
-        border-color: transparent transparent #666 #666;
+        border-color: transparent transparent #000 #000;
     }
     
     .result:after {
@@ -41,20 +56,18 @@ template.innerHTML = `
     .message {
         display: flex;
         align-self: flex-start;
-        font-size: 30px;
-        padding: 15px 10px;
+        font-size: 3vh;
+        padding: 1.5vh 1vh;
         color: black;
+        flex-grow: 10;
         line-height: 1;
         word-break: break-all;
-        -moz-hyphens: auto;
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
     }
 
     .time {
         display: flex;
         align-self: flex-end;
-        font-size: 25px;
+        font-size: 2.5vh;
         color: gray;
         padding: 1vh;
     }

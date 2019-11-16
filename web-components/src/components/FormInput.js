@@ -5,10 +5,10 @@ template.innerHTML = `
             border: 0;
             outline: none;
             width: calc(100% - 20px);
-            height: 130px;
+            height: 8vh;
             padding-left: 20px;
             padding-right: 20px;
-            font-size: 35px;
+            font-size: 4vh;
             display: flex;
         }
         :host {
@@ -27,7 +27,7 @@ template.innerHTML = `
     <input type="text">
         <div class="button">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         width="50px" height="50px" viewBox="0 0 792 792" style="enable-background:new 0 0 792 792;" xml:space="preserve" transform="rotate(90)">
+         width="5vh" height="5vh" viewBox="0 0 792 792" style="enable-background:new 0 0 792 792;" xml:space="preserve" transform="rotate(90)">
         <g>
         <path d="M306,150.48v459.36c0,0-6.696,96.408,91.476,96.408C486,706.248,486,609.84,486,609.84V126.72C486,126.72,486,0,360,0
         S234,126.72,234,126.72v483.12c0,0,0,182.16,162,182.16s162-182.16,162-182.16V126.72c0-19.8-36-19.8-36,0v483.12

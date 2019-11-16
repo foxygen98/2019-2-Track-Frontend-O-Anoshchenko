@@ -3,8 +3,8 @@ template.innerHTML = `
     <style>
     .top {
         display: flex;
-        padding: 10px;
-        height: 130px;
+        padding: 2vh;
+        height: 8vh;
         width: 100%;
         background-color: #8E24AA;
         align-items:center;
@@ -13,28 +13,30 @@ template.innerHTML = `
     .name_and_stat {
         color: white;
         position: relative;
-        bottom: 10px;
         display: flex;
         flex-direction: column;
-        flex-grow: 5;
+        flex-grow: 10;
         align-content: center;
         justify-content: center;
     }
     
-    .name_and_stat h1{
-        font-size: 50px;
+    .name {
+        font-size: 4vh;
         position: relative;
-        top: 30px;
+    }
+
+    .stat{
+        font-size: 1.8vh;
+        position: relative;
     }
     
     .settings {
         display: flex;
-        padding-right: 10px;
     }
     
     .search {
         display: flex;
-        flex-grow: 0.5;
+        flex-grow: 1;
     }
     
     .return_back {
@@ -50,30 +52,58 @@ template.innerHTML = `
     .name_mess {
         color: white;
         flex-grow: 5;
-        font-size: 30px;
-        top: 10px;
+        font-size: 6vh;
     }
 
     .head_of_private_chat {
         display: none;
     }
+
+    .menu {
+        fill: white;
+    }
+
+    .menu:active {
+        fill: rgba(0, 0, 0, 0.5);
+    }
+
+    .return_back {
+        fill: white;
+    }
+
+    .return_back:active {
+        fill: rgba(0, 0, 0, 0.5);
+    }
+
+    .settings {
+        fill: white;
+    }
+
+    .settings:active {
+        fill: rgba(0, 0, 0, 0.5);
+    }
+
+    .search .st0{
+            fill: white;
+    }
+
+    .search:active .st0{
+            fill: rgba(0, 0, 0, 0.5);
+    }
+
     </style>
 
     <div class="head_of_chat_list">
         <div class="top">
          <div class="menu">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-        width="80" height="80"
-        viewBox="0 0 24 24"
-        style=" fill:white;"><path d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"></path></svg>
+        width="7vh" height="7vh"
+        viewBox="0 0 24 24"><path d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"></path></svg>
         </div>
-        <div class="name_mess">
-            <h1>Messenger</h1>
-        </div>
+        <div class="name_mess">Messenger</div>
         <div class="search">
-            <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90px" height="90px">
+            <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9vh" height="9vh">
                 <style type="text/css">
-                .st0{fill: white;}
             </style>
             <g>
                 <g id="Icon-Search" transform="translate(30.000000, 230.000000)"><path class="st0" d="M-2.3-182.9c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5s19.5,8.7,19.5,19.5     C17.1-191.6,8.4-182.9-2.3-182.9L-2.3-182.9z M-2.3-219c-9.2,0-16.7,7.5-16.7,16.7c0,9.2,7.5,16.7,16.7,16.7s16.7-7.5,16.7-16.7     C14.3-211.5,6.8-219-2.3-219L-2.3-219z" id="Fill-1"/><polyline class="st0" id="Fill-2" points="23.7,-174.2 10.1,-187.7 12.3,-189.9 25.8,-176.3 23.7,-174.2    "/>
@@ -87,8 +117,8 @@ template.innerHTML = `
     <div class="top">
     <div class="return_back">
             <svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="90px" height="90px"
-            viewBox="0 0 96 96" enable-background="new 0 0 96 96" xml:space="preserve" fill="white" transform="rotate(90)">
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8vh" height="8vh"
+            viewBox="0 0 96 96" enable-background="new 0 0 96 96" xml:space="preserve" transform="rotate(90)">
        <switch>
            <foreignObject requiredExtensions="&ns_ai;" x="0" y="0" width="1" height="1">
                <i:pgfRef  xlink:href="#adobe_illustrator_pgf">
@@ -102,7 +132,7 @@ template.innerHTML = `
         </svg>
     </div>
     <div>
-        <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px">
+        <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10vh" height="10vh">
             <style type="text/css">
                 .st0{fill: white;}
             </style>
@@ -115,11 +145,11 @@ template.innerHTML = `
         </svg>
     </div>
     <div class="name_and_stat">
-        <h1>Имя собеседника</h1>
-        <h3>Был(а) 2 часа назад</h3>
+        <div class="name">Имя собеседника</div>
+        <div class="stat">Был(а) 2 часа назад</div>
     </div>
     <div class="search">
-            <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90px" height="90px">
+            <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9vh" height="9vh">
                 <style type="text/css">
                 .st0{fill: white;}
             </style>
@@ -131,7 +161,7 @@ template.innerHTML = `
     </div>
     <div class="settings">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            width="90px" height="90px" viewBox="0 0 408 408" style="enable-background:new 0 0 408 408;" xml:space="preserve" fill="white">
+            width="8vh" height="8vh" viewBox="0 0 408 408" style="enable-background:new 0 0 408 408;" xml:space="preserve">
        <g>
            <g id="more-vert">
                <path d="M204,102c28.05,0,51-22.95,51-51S232.05,0,204,0s-51,22.95-51,51S175.95,102,204,102z M204,153c-28.05,0-51,22.95-51,51

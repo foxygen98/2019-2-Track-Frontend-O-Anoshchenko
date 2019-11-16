@@ -3,20 +3,27 @@ template.innerHTML = `
     <style>
     .one_chat {
       display: flex;
-      padding: 0px;
+      transition: all 1s;
+      align-items:stretch;
+    }
+
+    .one_chat:hover {
+      background: rgba(0, 0, 0, 0.02);
     }
   
     .name_and_text {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 50px 10px 10px 10px;
-      width: 670px;
+      justify-content: flex-start;
+      flex-grow: 2;
+      width: 30vh;
+      padding: 3vh 3vh 0vh 3vh;
     }
   
     .friend_name {
-      font-size: 45px;
+      font-size: 4vh;
       color: black;
+      padding: 0vh 0vh 1vh 0vh;
     }
 
     .last_message {
@@ -24,8 +31,7 @@ template.innerHTML = `
       white-space: nowrap;
       overflow: hidden;
       color: gray;
-      padding: 5px;
-      font-size: 35px;
+      font-size: 3vh;
     }
   
     .time_and_status {
@@ -35,21 +41,22 @@ template.innerHTML = `
     }
   
     .last_post_time {
-      font-size: 40px;
-      padding: 50px 0px 0px 10px;
+      font-size: 3vh;
+      padding: 3vh 2vh 0vh 0vh;
+      align-self: flex-end;
     }
   
     .last_post_status {
       display: none;
       align-self: flex-end;
+      padding: 0vh 2vh 0vh 0vh;
     }  
     </style>
-    <form class="one_chat">
             <div class="one_chat">
                 <div class="friend_photo">
-                <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 58 54" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130px" height="130px">
+                <svg id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 58 54" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10vh" height="10vh">
                 <style type="text/css">
-                    .st0{fill: #9933aa;}
+                    .st0{fill: #8E24AA;}
                 </style>
                 <g>
                     <g id="Icon-User" transform="translate(278.000000, 278.000000)">
@@ -60,21 +67,18 @@ template.innerHTML = `
             </svg></div>
                 <div class="name_and_text">
                 <div class="friend_name">Имя собеседника</div>
-                <p><div class="last_message"></div></p>
+                <div class="last_message"></div>
                 </div>
                 <div class="time_and_status">
                 <div class="last_post_time"></div>
                 <div class="last_post_status">
-                        <p>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                        width="40" height="40"
+                        width="3vh" height="3vh"
                         viewBox="0 0 26 26"
-                        style=" fill:#9933aa;"><path d="M 22.566406 4.730469 L 20.773438 3.511719 C 20.277344 3.175781 19.597656 3.304688 19.265625 3.796875 L 10.476563 16.757813 L 6.4375 12.71875 C 6.015625 12.296875 5.328125 12.296875 4.90625 12.71875 L 3.371094 14.253906 C 2.949219 14.675781 2.949219 15.363281 3.371094 15.789063 L 9.582031 22 C 9.929688 22.347656 10.476563 22.613281 10.96875 22.613281 C 11.460938 22.613281 11.957031 22.304688 12.277344 21.839844 L 22.855469 6.234375 C 23.191406 5.742188 23.0625 5.066406 22.566406 4.730469 Z"></path></svg>
-                        </p>
+                        style=" fill:#8E24AA;"><path d="M 22.566406 4.730469 L 20.773438 3.511719 C 20.277344 3.175781 19.597656 3.304688 19.265625 3.796875 L 10.476563 16.757813 L 6.4375 12.71875 C 6.015625 12.296875 5.328125 12.296875 4.90625 12.71875 L 3.371094 14.253906 C 2.949219 14.675781 2.949219 15.363281 3.371094 15.789063 L 9.582031 22 C 9.929688 22.347656 10.476563 22.613281 10.96875 22.613281 C 11.460938 22.613281 11.957031 22.304688 12.277344 21.839844 L 22.855469 6.234375 C 23.191406 5.742188 23.0625 5.066406 22.566406 4.730469 Z"></path></svg>
                 </div>
                 </div>
             </div>
-        </form> 
         <hr width="85%" align="right">
 `;
 
