@@ -5,16 +5,16 @@ template.innerHTML = `
             display: flex;
             align-items: center;
             background-color: white;
-            width: calc(100% - 2px);
+            width: calc(100% - 0.2vh);
         }
 
         .chat_space {
                 display: flex;
-                padding-right: 10px;
-                magrin-right: 10px;
+                flex-grow: 10;
+                padding-right: 1vh;
+                magrin-right: 1vh;
                 flex-direction: column-reverse;
                 align-items: flex-end;
-                height: calc(100vh - 260px);
                 overflow-y: auto;
                 will-change: transform;
         }
@@ -22,8 +22,8 @@ template.innerHTML = `
         .chat {
           display: flex;
           flex-direction: column;
-          width: 100%;
-          height: 100%;
+          height: 88vh;
+          width: calc(100% - 0.2vh);
         }
 
         input[type=submit] {
