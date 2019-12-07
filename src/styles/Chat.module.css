@@ -1,0 +1,54 @@
+.Chat {
+    display: flex;
+    transition: all 1s;
+    align-items:stretch;
+  }
+
+.Chat:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.NameAndMess {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 2;
+    width: 30vh;
+    padding: 3vh 3vh 0vh 3vh;
+}
+
+.UserName {
+    font-size: 4vh;
+    color: black;
+    padding: 0vh 0vh 1vh 0vh;
+}
+
+.LastMess {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: gray;
+    font-size: 3vh;
+}
+
+.TimeAndStat {
+    color: gray;
+    display: flex;
+    flex-direction: column;
+}
+
+.Time {
+    font-size: 3vh;
+    padding: 3vh 2vh 0vh 0vh;
+    align-self: flex-end;
+}
+
+.Stat {
+    align-self: flex-end;
+    width: 5vh;
+    padding: 0vh 2vh 0vh 0vh;
+} 
+
+.Avatar {
+    fill: #8E24AA;
+}

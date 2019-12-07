@@ -1,38 +1,59 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
-import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import styles from '../styles/Header.module.css'
+import PropTypes from 'prop-types'
+import { ReactComponent as MenuButton } from '../assets/buttons/menu.svg'
+import { ReactComponent as SearchButton } from '../assets/buttons/search.svg'
+import { ReactComponent as Avatar } from '../assets/buttons/avatar.svg'
+import { ReactComponent as Settings } from '../assets/buttons/settings.svg'
+import { ReactComponent as ReturnButton } from '../assets/buttons/return_back.svg'
 
-const year = new Date().getFullYear()
+function Header (props) {
+        return(
+        <React.Fragment>
+            {props.header === 'chatlist' && <HeadOfChatList />}
+            {props.header  === 'messagelist' && <HeadOfPersonalChat return={props.return}/>}
+        </React.Fragment>
+        )
+    }
 
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`
+function HeadOfChatList () {
+    return(
+    <div className={styles.Header}>
+        <MenuButton className={styles.MenuButton} />
+        <div className={styles.Name}>Messenger</div>
+        <SearchButton className={styles.SearchButton}/>
+    </div>
+    )
+}
 
-const TopBar = styled.div`
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: #fff;
+function HeadOfPersonalChat (props) {
+    return(
+    <div className={styles.Header}>
+        <ReturnButton className={styles.ReturnButton} onClick={props.return}/>
+        <Avatar className={styles.Avatar} />
+        <NameAndStat />
+        <SearchButton className={styles.SearchButton}/>
+        <Settings />
+    </div>
+    )
+}
 
-  .redux-logo {
-    animation: ${rotate360} infinite 20s linear;
-    height: 80px;
-  }
-`
+function NameAndStat () {
+    return(
+        <div className={styles.NameAndStat}>
+            <div className={styles.UserName}>Имя собеседника</div>
+            <div className={styles.Stat}>Был(а) в сети...</div>
+        </div>
+    )
+}
 
-function Header() {
-  return (
-    <TopBar>
-      <img src={logo} className="redux-logo" alt="logo" />
-      <h2>Track Mail.Ru, {year}</h2>
-    </TopBar>
-  )
+Header.propTypes = {
+    return: PropTypes.func.isRequired,
+    header: PropTypes.string.isRequired,
+}
+
+HeadOfPersonalChat.propTypes = {
+    return: PropTypes.func.isRequired,
 }
 
 export default Header
