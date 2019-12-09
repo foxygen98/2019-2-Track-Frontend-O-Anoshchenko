@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Header.js'
-import ChatList from './ChatList'
+import ChatList from './ChatList.js'
 import MessageList from './MessageList'
 import chatElemStyles from '../styles/Chat.module.css'
 

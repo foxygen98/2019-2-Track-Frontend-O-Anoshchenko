@@ -78,10 +78,19 @@ function MessageList ({ chatId }) {
         localStorage.setItem('chats', JSON.stringify(chatHistory))
     }
 
+    function reverse(array) {
+		const reverseArray = []
+		const len = array.length
+		for (let i = 0; i < len; i += 1) {
+			reverseArray[i] = array[len - i - 1]
+		}
+		return reverseArray
+	}
+
     return (
         <div className={styles.Chat}>
             <div className={styles.ChatSpace}>
-                {messages}
+                {reverse(messages)}
             </div>
             <Input
             handleSubmit={handleSubmit}
