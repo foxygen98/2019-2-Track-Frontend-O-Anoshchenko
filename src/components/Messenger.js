@@ -3,12 +3,12 @@ import Header from './Header.js'
 import ChatList from './ChatList.js'
 import MessageList from './MessageList'
 import Profile from './Profile'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 
 class Messenger extends React.Component {
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <Route path='/profile'>
                     <Header header='editprofile'/>
                     <Profile />
@@ -21,7 +21,7 @@ class Messenger extends React.Component {
                     <Header header='messagelist' />
                     <MessageList />
                 </Route>
-            </BrowserRouter>
+            </HashRouter>
         )
     }
 }
