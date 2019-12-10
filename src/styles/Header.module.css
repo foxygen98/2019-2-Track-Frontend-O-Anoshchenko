@@ -1,0 +1,90 @@
+.Header {
+    display: flex;
+    padding: 2vh;
+    height: 10vh;
+    width: 100%;
+    background-color: #8E24AA;
+    align-items:center;
+}
+
+.MenuButton {
+    display: flex;
+    flex-grow: 2;
+}
+
+.MenuButton {
+    fill: white;
+}
+
+.MenuButton:active {
+    fill: rgba(0, 0, 0, 0.5);
+}
+
+.Name {
+    color: white;
+    flex-grow: 5;
+    font-size: 5vh;
+}
+
+.SearchButton {
+    display: flex;
+    flex-grow: 1;
+}
+
+.SearchButton .st0{
+    fill: white;
+}
+
+.SearchButton:active .st0{
+    fill: rgba(0, 0, 0, 0.5);
+}
+
+.ReturnButton {
+    display: flex;
+    flex-grow: 2;
+    fill: white;
+}
+
+.ReturnButton:active {
+    fill: rgba(0, 0, 0, 0.5);
+}
+
+.NameAndStat {
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 10;
+    align-content: center;
+    justify-content: center;
+}
+
+.UserName {
+    font-size: 3.2vh;
+    position: relative;
+}
+
+.Stat {
+    font-size: 1.8vh;
+    position: relative;
+}
+
+.Avatar {
+    fill: white;
+}
+
+.settings {
+    display: flex;
+}
+
+.head_of_private_chat {
+    display: none;
+}
+
+.settings {
+    fill: white;
+}
+
+.settings:active {
+    fill: rgba(0, 0, 0, 0.5);
+}

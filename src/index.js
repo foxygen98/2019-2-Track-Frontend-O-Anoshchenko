@@ -1,15 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import store from './store'
-import Routes from './routes'
+//import { Provider } from 'react-redux'
+//import store from './store'
+import Messenger from './components/Messenger.js'
 import './styles/globalStyles.css'
 import * as serviceWorker from './utils/serviceWorker'
 
 render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>,
+  //<Provider store={store}>
+    <Messenger />,
+  //</Provider>,
   document.getElementById('root'),
 )
 // If you want your app to work offline and load faster, you can change
