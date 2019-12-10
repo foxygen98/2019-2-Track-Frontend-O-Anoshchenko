@@ -31,12 +31,21 @@
     flex-grow: 1;
 }
 
+
 .SearchButton .st0{
     fill: white;
 }
 
 .SearchButton:active .st0{
     fill: rgba(0, 0, 0, 0.5);
+}
+
+.CheckMark {
+    display: flex;
+    flex-grow: 1;
+    fill: white;
+    width: 8vh;
+    height: 8vh;
 }
 
 .ReturnButton {

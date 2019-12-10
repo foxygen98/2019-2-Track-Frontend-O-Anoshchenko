@@ -52,3 +52,7 @@
 .Avatar {
     fill: #8E24AA;
 }
+
+.Link {
+    text-decoration: none;
+}

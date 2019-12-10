@@ -3,20 +3,22 @@ import PropTypes from 'prop-types'
 import { ReactComponent as Avatar } from '../assets/buttons/avatar.svg'
 import { ReactComponent as Status } from '../assets/buttons/status.svg'
 import styles from '../styles/Chat.module.css'
+import { Link } from 'react-router-dom'
 
 function Chat (props) {
     return(
         <div>
+            <Link to={`/chat/${props.id}`} className={styles.Link}>
             <div 
               role='button' 
               className={styles.Chat} 
               id={props.id}
-              tabIndex={props.id}
-              onClick={props.Click}>
+              tabIndex={props.id}>
                 <Avatar className={styles.Avatar} />
                 <NameAndMess lastMessage={props.lastMessage}/>
                 <TimeAndStat lastTime={props.lastTime} lastmessage={props.lastMessage}/>
             </div>
+            </Link>
             <hr />
         </div>
     )
@@ -44,7 +46,6 @@ Chat.propTypes = {
     lastMessage: PropTypes.string.isRequired,
     lastTime: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
-    Click: PropTypes.func.isRequired,
 }
 
 TimeAndStat.propTypes = {

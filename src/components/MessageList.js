@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import Input from './Input.js'
 import Message from './Messages.js'
-import PropTypes from 'prop-types'
 import styles from '../styles/Messages.module.css'
+import { useParams } from 'react-router-dom'
 
-function MessageList ({ chatId }) {
+function MessageList () {
+    const { chatId } = useParams()
     const [messages, setMessages] = useState(recover())
     const [input, setInput] = useState('')
 
@@ -101,10 +102,6 @@ function MessageList ({ chatId }) {
         </div>
     )
 
-}
-
-MessageList.propTypes = {
-    chatId: PropTypes.string.isRequired,
 }
 
 export default MessageList

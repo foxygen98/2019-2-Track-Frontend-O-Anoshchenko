@@ -26,3 +26,7 @@
     align-items: center;
     margin-right: 1vh;
 }
+
+input[type=submit] {
+    visibility: collapse;
+}
