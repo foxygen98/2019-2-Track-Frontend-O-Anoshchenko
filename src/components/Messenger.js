@@ -6,15 +6,6 @@ import Profile from './Profile'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 class Messenger extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            chatList: '',
-            messageList: '',
-            header: 'chatlist',
-        }
-    }
-
     render() {
         return (
             <BrowserRouter>

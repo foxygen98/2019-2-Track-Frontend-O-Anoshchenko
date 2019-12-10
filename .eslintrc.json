@@ -48,6 +48,7 @@
       2,
       "never"
     ],
+    "react/prefer-stateless-function": 0,
     "import/no-named-as-default": 0,
     "react/jsx-filename-extension": [
       1,
