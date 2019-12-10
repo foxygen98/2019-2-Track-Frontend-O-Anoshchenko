@@ -1,0 +1,47 @@
+.Profile {
+    background-color: white;
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Photo {
+    margin: 5vh;
+    box-shadow: 0 0 2vh rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    background-color: #eeeeee;
+}
+
+.Form {
+    background-color: #eeeeee;
+    width: calc(100% - 10vh);
+    margin: 2vh;
+    border-radius: 1vh 1vh 0vh 0vh;
+    border-bottom: 0.3vh solid #9b9b9b;
+    display: flex;
+    flex-direction: column;
+}
+
+.Name {
+    background-color: #eeeeee;
+    border: none;
+    padding: 0.5vh;
+}
+
+.Bio {
+    background-color: #eeeeee;
+    height: 13vh;
+    border: none;
+    padding: 0.5vh;
+}
+
+.Text {
+    font-size: 2.7vh;
+    color: #656565;
+    padding: 0.5vh;
+}
+
+
+input {outline:none;}
+textarea {outline: none;}

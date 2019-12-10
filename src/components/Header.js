@@ -6,40 +6,45 @@ import { ReactComponent as SearchButton } from '../assets/buttons/search.svg'
 import { ReactComponent as Avatar } from '../assets/buttons/avatar.svg'
 import { ReactComponent as Settings } from '../assets/buttons/settings.svg'
 import { ReactComponent as ReturnButton } from '../assets/buttons/return_back.svg'
+import { ReactComponent as CheckMark } from '../assets/buttons/checkmark.svg'
+import { Link } from 'react-router-dom'
 
-function Header (props) {
-        return(
+function Header(props) {
+    return (
         <React.Fragment>
             {props.header === 'chatlist' && <HeadOfChatList />}
-            {props.header  === 'messagelist' && <HeadOfPersonalChat return={props.return}/>}
+            {props.header === 'messagelist' && <HeadOfPersonalChat />}
+            {props.header === 'editprofile' && <HeadOfProfile />}
         </React.Fragment>
-        )
-    }
-
-function HeadOfChatList () {
-    return(
-    <div className={styles.Header}>
-        <MenuButton className={styles.MenuButton} />
-        <div className={styles.Name}>Messenger</div>
-        <SearchButton className={styles.SearchButton}/>
-    </div>
     )
 }
 
-function HeadOfPersonalChat (props) {
-    return(
-    <div className={styles.Header}>
-        <ReturnButton className={styles.ReturnButton} onClick={props.return}/>
-        <Avatar className={styles.Avatar} />
-        <NameAndStat />
-        <SearchButton className={styles.SearchButton}/>
-        <Settings />
-    </div>
+function HeadOfChatList() {
+    return (
+        <div className={styles.Header}>
+            <MenuButton className={styles.MenuButton} />
+            <div className={styles.Name}>Messenger</div>
+            <SearchButton className={styles.SearchButton} />
+        </div>
     )
 }
 
-function NameAndStat () {
-    return(
+function HeadOfPersonalChat() {
+    return (
+        <div className={styles.Header}>
+            <Link to={'/'}>
+                <ReturnButton className={styles.ReturnButton} />
+            </Link>
+            <Avatar className={styles.Avatar} />
+            <NameAndStat />
+            <SearchButton className={styles.SearchButton} />
+            <Settings />
+        </div>
+    )
+}
+
+function NameAndStat() {
+    return (
         <div className={styles.NameAndStat}>
             <div className={styles.UserName}>Имя собеседника</div>
             <div className={styles.Stat}>Был(а) в сети...</div>
@@ -47,13 +52,20 @@ function NameAndStat () {
     )
 }
 
-Header.propTypes = {
-    return: PropTypes.func.isRequired,
-    header: PropTypes.string.isRequired,
+function HeadOfProfile() {
+    return (
+        <div className={styles.Header}>
+            <Link to={'/'}>
+                <ReturnButton className={styles.ReturnButton} />
+            </Link>
+            <div className={styles.Name}>Edit Profile</div>
+            <CheckMark className={styles.CheckMark} />
+        </div>
+    )
 }
 
-HeadOfPersonalChat.propTypes = {
-    return: PropTypes.func.isRequired,
+Header.propTypes = {
+    header: PropTypes.string.isRequired,
 }
 
 export default Header

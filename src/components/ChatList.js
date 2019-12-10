@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { ReactComponent as Pen } from '../assets/buttons/pen.svg'
 import styles from '../styles/ChatList.module.css'
 import Chat from './Chat.js'
@@ -26,7 +25,6 @@ function ChatList (props) {
                       id={num}
                       lastMessage={message}
                       lastTime={time}
-                      Click={props.open}
                     />,
                 )
             }
@@ -46,7 +44,6 @@ function ChatList (props) {
                   id={num}
                   latMessage=''
                   lastTime=''
-                  Click={props.open}
                 />,
             )
         )
@@ -69,10 +66,6 @@ function ChatList (props) {
             <Pen className={styles.Pen} onClick={handleCreateChat} />
         </React.Fragment>
     )
-}
-
-ChatList.propTypes = {
-    open: PropTypes.func.isRequired,
 }
 
 export default ChatList
