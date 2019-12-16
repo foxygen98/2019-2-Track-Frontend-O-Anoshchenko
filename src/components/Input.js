@@ -13,6 +13,10 @@ function Input(props) {
         setModalIsOpen(true)
     }
 
+    function closeAttachMenu() {
+        setModalIsOpen(false)
+    }
+
     return (
         <React.Fragment>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
@@ -26,20 +30,24 @@ function Input(props) {
                 <Attachment className={styles.Button} onClick={openAttachMenu} />
             </form>
             {modalIsOpen &&
-                <div id="menu" className={styles.addAttach}>
-                    <Location className={styles.Attachment} onClick={props.getLocation} />
-                    <Micro className={styles.Attachment} onClick={props.startRecord} />
-                    <label htmlFor="image">
-                        <Picture className={styles.Attachment} />
-                    </label>
-                    <input
-                        id="image"
-                        type="file"
-                        multiple
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                        onChange={props.addImage}
-                    />
+                <div className={styles.modalwrapper}>
+                    <div id="menu" className={styles.addAttach}>
+                        <Location className={styles.Attachment} onClick={props.getLocation} />
+                        <Micro className={styles.Attachment} onClick={props.startRecord} id="rec" />
+                        <Micro className={styles.stopRec} id="stopRec" />
+                        <label htmlFor="image">
+                            <Picture className={styles.Attachment} />
+                        </label>
+                        <input
+                            id="image"
+                            type="file"
+                            multiple
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={props.addImage}
+                        />
+                    </div>
+                    <div className={styles.overlay} role="button" tabIndex={0} onClick={closeAttachMenu} />
                 </div>
             }
         </React.Fragment>
