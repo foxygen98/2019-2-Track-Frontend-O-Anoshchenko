@@ -18,4 +18,4 @@ deploy:
     branch:
       - master
       - devel
-      - lesson_6
+      - lesson_7
