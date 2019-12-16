@@ -30,3 +30,25 @@
 input[type=submit] {
     visibility: collapse;
 }
+
+.addAttach {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: linear-gradient(45deg, #f3e6f5, #f0f0f0);
+    height: 15vh;
+    width: 100%;
+    bottom: 0vh;
+    border-top: 0.1vh solid #66157a;
+}
+
+.Attachment {
+    margin: 3vh;
+}
+
+.stopRec {
+    margin: 3vh;
+    display: none;
+    fill: red;
+}

@@ -16,7 +16,7 @@ function ChatList (props) {
                 let time = ''
                 const newChat = chatHistory[num].messages
                 if (newChat.length > 0) {
-                    message = newChat[newChat.length - 1].messageText
+                    message = newChat[newChat.length - 1].Content
                     time = newChat[newChat.length - 1].messageTime
                 }
                 array.push(
