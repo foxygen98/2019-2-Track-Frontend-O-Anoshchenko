@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 function Chat (props) {
     return(
-        <div>
+        <div className={styles.box}>
             <Link to={`/chat/${props.id}`} className={styles.Link}>
             <div 
               role='button' 

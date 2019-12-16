@@ -2,9 +2,14 @@
     display: flex;
     transition: all 1s;
     align-items:stretch;
+    height: 12vh;
   }
 
-.Chat:hover {
+.box {
+    height: 13.7vh;
+}
+
+.box:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 
