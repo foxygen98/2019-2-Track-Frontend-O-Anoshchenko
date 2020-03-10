@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input biography renders correctly 1`] = `
+<textarea
+  className="Bio"
+/>
+`;
+
+exports[`input renders correctly 1`] = `
+<input
+  className="Name"
+  maxLength={25}
+/>
+`;
+
+exports[`photo renders correctly 1`] = `
+<svg
+  className="Photo"
+>
+  editphoto.svg
+</svg>
+`;

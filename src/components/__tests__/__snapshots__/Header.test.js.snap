@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckMark renders correctly 1`] = `
+<svg
+  className="CheckMark"
+>
+  checkmark.svg
+</svg>
+`;
+
+exports[`MenuButton renders correctly 1`] = `
+<svg
+  className="MenuButton"
+>
+  menu.svg
+</svg>
+`;
+
+exports[`ReturnButton renders correctly 1`] = `
+<svg
+  className="ReturnButton"
+>
+  return_back.svg
+</svg>
+`;
+
+exports[`SearchButton renders correctly 1`] = `
+<svg
+  className="SearchButton"
+>
+  search.svg
+</svg>
+`;
+
+exports[`name and status render correctly 1`] = `
+<div
+  className="NameAndStat"
+>
+  <div
+    className="UserName"
+  >
+    Имя собеседника
+  </div>
+  <div
+    className="Stat"
+  >
+    Был(а) в сети...
+  </div>
+</div>
+`;
+
+exports[`title of profile renders correctly 1`] = `
+<div
+  className="Name"
+>
+  Edit Profile
+</div>
+`;
+
+exports[`title renders correctly 1`] = `
+<div
+  className="Name"
+>
+  Messenger
+</div>
+`;
