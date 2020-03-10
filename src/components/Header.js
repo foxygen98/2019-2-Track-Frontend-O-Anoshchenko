@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from '../styles/Header.module.css'
 import PropTypes from 'prop-types'
-import { ReactComponent as MenuButtonSvg } from '../assets/buttons/menu.svg'
-import { ReactComponent as SearchButtonSvg } from '../assets/buttons/search.svg'
+import { ReactComponent as MenuButton } from '../assets/buttons/menu.svg'
+import { ReactComponent as SearchButton } from '../assets/buttons/search.svg'
+import { ReactComponent as Avatar } from '../assets/buttons/avatar.svg'
 import { ReactComponent as Settings } from '../assets/buttons/settings.svg'
-import { ReactComponent as ReturnButtonSvg } from '../assets/buttons/return_back.svg'
-import { ReactComponent as CheckMarkSvg } from '../assets/buttons/checkmark.svg'
-import Avatar from './Avatar.js'
+import { ReactComponent as ReturnButton } from '../assets/buttons/return_back.svg'
+import { ReactComponent as CheckMark } from '../assets/buttons/checkmark.svg'
 import { Link } from 'react-router-dom'
 
 function Header(props) {
@@ -22,9 +22,9 @@ function Header(props) {
 function HeadOfChatList() {
     return (
         <div className={styles.Header}>
-            <MenuButton />
-            <Title />
-            <SearchButton />
+            <MenuButton className={styles.MenuButton} />
+            <div className={styles.Name}>Messenger</div>
+            <SearchButton className={styles.SearchButton} />
         </div>
     )
 }
@@ -33,29 +33,17 @@ function HeadOfPersonalChat() {
     return (
         <div className={styles.Header}>
             <Link to={'/'}>
-                <ReturnButton />
+                <ReturnButton className={styles.ReturnButton} />
             </Link>
-            <Avatar />
+            <Avatar className={styles.Avatar} />
             <NameAndStat />
-            <SearchButton />
+            <SearchButton className={styles.SearchButton} />
             <Settings />
         </div>
     )
 }
 
-function HeadOfProfile() {
-    return (
-        <div className={styles.Header}>
-            <Link to={'/'}>
-                <ReturnButton />
-            </Link>
-            <TitleOfProfile />
-            <CheckMark />
-        </div>
-    )
-}
-
-export function NameAndStat() {
+function NameAndStat() {
     return (
         <div className={styles.NameAndStat}>
             <div className={styles.UserName}>Имя собеседника</div>
@@ -64,39 +52,15 @@ export function NameAndStat() {
     )
 }
 
-export function Title() {
-    return(
-        <div className={styles.Name}>Messenger</div>
-    )
-}
-
-export function TitleOfProfile() {
+function HeadOfProfile() {
     return (
-        <div className={styles.Name}>Edit Profile</div>
-    )
-}
-
-export function MenuButton() {
-    return (
-        <MenuButtonSvg className={styles.MenuButton} />
-    )
-}
-
-export function SearchButton() {
-    return (
-        <SearchButtonSvg className={styles.SearchButton} />
-    )
-}
-
-export function ReturnButton() {
-    return (
-        <ReturnButtonSvg className={styles.ReturnButton} />
-    )
-}
-
-export function CheckMark() {
-    return (
-        <CheckMarkSvg className={styles.CheckMark} />
+        <div className={styles.Header}>
+            <Link to={'/'}>
+                <ReturnButton className={styles.ReturnButton} />
+            </Link>
+            <div className={styles.Name}>Edit Profile</div>
+            <CheckMark className={styles.CheckMark} />
+        </div>
     )
 }
 

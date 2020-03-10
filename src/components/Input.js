@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { ReactComponent as Attachment } from '../assets/buttons/attachment.svg'
 import { ReactComponent as Location } from '../assets/buttons/location.svg'
 import { ReactComponent as Micro } from '../assets/buttons/micro.svg'
-import { ReactComponent as PictureSvg } from '../assets/buttons/picture.svg'
+import { ReactComponent as Picture } from '../assets/buttons/picture.svg'
 
 function Input(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -36,7 +36,7 @@ function Input(props) {
                         <Micro className={styles.Attachment} onClick={props.startRecord} id="rec" />
                         <Micro className={styles.stopRec} id="stopRec" />
                         <label htmlFor="image">
-                            <Picture />
+                            <Picture className={styles.Attachment} />
                         </label>
                         <input
                             id="image"
@@ -51,12 +51,6 @@ function Input(props) {
                 </div>
             }
         </React.Fragment>
-    )
-}
-
-export function Picture() {
-    return(
-        <PictureSvg className={styles.Attachment} />
     )
 }
 

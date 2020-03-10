@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`avatar renders correctly 1`] = `
-<svg
-  className="Avatar"
->
-  avatar.svg
-</svg>
-`;

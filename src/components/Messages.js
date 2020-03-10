@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styles from '../styles/Messages.module.css'
 
 function Message(props) {
+
     return (
         <div>
             <div className={styles.result}>
