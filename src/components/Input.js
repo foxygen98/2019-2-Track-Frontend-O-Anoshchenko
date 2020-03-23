@@ -21,6 +21,7 @@ function Input(props) {
         <React.Fragment>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
                 <input
+                    id={'message_input'}
                     className={styles.Input}
                     type="text"
                     value={props.value}
