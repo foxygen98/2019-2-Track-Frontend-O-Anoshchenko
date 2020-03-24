@@ -6,7 +6,7 @@ describe('attachment', () => {
     let page
     let browser
     beforeAll(async () => {
-        browser = await puppeteer.launch({ devtools: true })
+        browser = await puppeteer.launch({ignoreDefaultArgs: ['--disable-extensions']})
         page = await browser.newPage()
 
         const context = browser.defaultBrowserContext()

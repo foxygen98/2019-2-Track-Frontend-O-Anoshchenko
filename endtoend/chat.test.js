@@ -5,7 +5,7 @@ describe('chat', () => {
     let page
     let browser
     beforeAll(async () => {
-        browser = await puppeteer.launch()
+        browser = await puppeteer.launch({ignoreDefaultArgs: ['--disable-extensions']})
         page = await browser.newPage()
         await page.goto('http://localhost:3000/2019-2-Track-Frontend-O-Anoshchenko#/')
     })
