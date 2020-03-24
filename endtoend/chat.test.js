@@ -1,15 +1,17 @@
-const path = require('path')
 require('babel-polyfill')
+const puppeteer = require('puppeteer')
 
-let page
-
-describe('app', () => {
+describe('chat', () => {
+    let page
+    let browser
     beforeAll(async () => {
+        browser = await puppeteer.launch()
+        page = await browser.newPage()
         await page.goto('http://localhost:3000/2019-2-Track-Frontend-O-Anoshchenko#/')
-    }, 100000)
+    })
     it('chat must be created', async () => {
         await expect(page).toClick('#CreateChat')
-    }, 100000)
+    })
     it('chat must be open', async () => {
         await expect(page).toClick('#chat_id_0')
     })
@@ -20,4 +22,7 @@ describe('app', () => {
     it('message must be displayed', async () => {
         await expect(page).toMatchElement('#message_text', {text: 'Hello'})
     })
+    afterAll(async () => {
+		await browser.close()
+	})
 })

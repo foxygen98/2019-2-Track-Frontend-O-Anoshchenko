@@ -18,4 +18,4 @@ deploy:
     branch:
       - master
       - devel
-      - lesson_7
+      - HW2
