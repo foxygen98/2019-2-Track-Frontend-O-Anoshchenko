@@ -5,7 +5,7 @@ import styles from '../styles/Messages.module.css'
 function Message(props) {
     return (
         <div>
-            <div className={styles.result}>
+            <div id={'message'} className={styles.result}>
                 <Content Content={props.Content} type={props.type} />
                 <div className={styles.time}>{props.messageTime}</div>
             </div>
@@ -16,7 +16,7 @@ function Message(props) {
 function Content(props) {
     let box = <div />
     if (props.type === 'text') {
-        box = <div className={styles.message}>{props.Content}</div>
+        box = <div id={'message_text'} className={styles.message}>{props.Content}</div>
     } else if (props.type === 'img') {
         box =
             <img

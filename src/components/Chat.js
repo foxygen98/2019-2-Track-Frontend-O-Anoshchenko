@@ -12,7 +12,7 @@ function Chat (props) {
             <div 
               role='button' 
               className={styles.Chat} 
-              id={props.id}
+              id={`chat_id_${props.id}`}
               tabIndex={props.id}>
                 <Avatar />
                 <NameAndMess lastMessage={props.lastMessage}/>

@@ -17,10 +17,21 @@ function Input(props) {
         setModalIsOpen(false)
     }
 
+    function getLocation() {
+        props.getLocation()
+        closeAttachMenu()
+    }
+
+    function addImage(event, files = event.target.files) {
+        props.addImage(event, files)
+        closeAttachMenu()
+    }
+
     return (
         <React.Fragment>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
                 <input
+                    id={'message_input'}
                     className={styles.Input}
                     type="text"
                     value={props.value}
@@ -32,9 +43,9 @@ function Input(props) {
             {modalIsOpen &&
                 <div className={styles.modalwrapper}>
                     <div id="menu" className={styles.addAttach}>
-                        <Location className={styles.Attachment} onClick={props.getLocation} />
+                        <Location id={'get_location'} className={styles.Attachment} onClick={getLocation} />
                         <Micro className={styles.Attachment} onClick={props.startRecord} id="rec" />
-                        <Micro className={styles.stopRec} id="stopRec" />
+                        <Micro className={styles.stopRec} id="stopRec" onClick={closeAttachMenu} />
                         <label htmlFor="image">
                             <Picture />
                         </label>
@@ -44,7 +55,7 @@ function Input(props) {
                             multiple
                             accept="image/*"
                             style={{ display: 'none' }}
-                            onChange={props.addImage}
+                            onChange={addImage}
                         />
                     </div>
                     <div className={styles.overlay} role="button" tabIndex={0} onClick={closeAttachMenu} />
