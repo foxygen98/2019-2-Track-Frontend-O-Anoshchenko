@@ -5,9 +5,12 @@ import { ReactComponent as Attachment } from '../assets/buttons/attachment.svg'
 import { ReactComponent as Location } from '../assets/buttons/location.svg'
 import { ReactComponent as Micro } from '../assets/buttons/micro.svg'
 import { ReactComponent as PictureSvg } from '../assets/buttons/picture.svg'
+import { ReactComponent as EmojiKey } from '../assets/emoji/smile.svg'
+import Emoji from './EmojiKeyboard'
 
 function Input(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [emojisIsOpen, setemojislIsOpen] = useState(false)
 
     function openAttachMenu() {
         setModalIsOpen(true)
@@ -27,6 +30,15 @@ function Input(props) {
         closeAttachMenu()
     }
 
+    function EmojiKeyboard(event) {
+        if (emojisIsOpen) {
+            setemojislIsOpen(false)
+        } 
+        else {
+            setemojislIsOpen(true)
+        }
+    }
+
     return (
         <React.Fragment>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
@@ -38,8 +50,10 @@ function Input(props) {
                     placeholder={props.placeholder}
                     onChange={props.handleChange}
                 />
+                <EmojiKey className={styles.Button} onClick={EmojiKeyboard}/>
                 <Attachment className={styles.Button} onClick={openAttachMenu} />
             </form>
+            <Emoji open={emojisIsOpen} SendSmile={props.SendSmile}/>
             {modalIsOpen &&
                 <div className={styles.modalwrapper}>
                     <div id="menu" className={styles.addAttach}>
