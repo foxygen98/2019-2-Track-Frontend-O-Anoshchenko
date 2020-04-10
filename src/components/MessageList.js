@@ -94,8 +94,6 @@ function MessageList() {
                 maximumAge: 30000,
             }
             navigator.geolocation.getCurrentPosition(success, errorFunc, geoOptions)
-        } else {
-            alert('Geolocation is not supported for this Browser/OS version yet!')
         }
     }
 
@@ -105,7 +103,7 @@ function MessageList() {
     }
 
     function errorFunc(err) {
-        console.log(`ERROR(${err.code}): ${err.message}`)
+        // console.log(`ERROR(${err.code}): ${err.message}`)
     }
 
     function getTime() {
@@ -202,13 +200,9 @@ function MessageList() {
         async function getMedia() {
 			let stream = null
 
-			try {
-				const constraints = { audio: true }
-				stream = await navigator.mediaDevices.getUserMedia(constraints)
-				recordAudio(stream)
-			} catch (error) {
-				console.log(error.message)
-			}
+			const constraints = { audio: true }
+			stream = await navigator.mediaDevices.getUserMedia(constraints)
+			recordAudio(stream)
         }
 
         getMedia()
