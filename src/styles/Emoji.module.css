@@ -1,0 +1,138 @@
+.emojis {
+    position: fixed;
+	display: flex;
+    position: fixed;
+	background: white;
+	padding-top: 1vh;
+	padding-left: 1vh;
+    width: 37vh;
+    height: 25vh;
+    border-radius: 1vh;
+    border: 1px solid gray;
+    bottom: 12%;
+    right: 3.5%;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap
+}
+
+.emojis:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 10%;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: #000 transparent transparent transparent;
+}
+
+.emojis:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 10%;
+    bottom: -29px;
+    border: 15px solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.emoji:hover {
+	opacity: 0.8;
+}
+
+.emoji {
+    width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+
+.confounded {
+	background: url('../assets/emoji/confounded.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.cool {
+	background: url('../assets/emoji/cool.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.cry {
+	background: url('../assets/emoji/cry.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.demon {
+	background: url('../assets/emoji/demon.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.grinning_face {
+	background: url('../assets/emoji/grinning_face.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.heart-eyes {
+	background: url('../assets/emoji/heart-eyes.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.kiss {
+	background: url('../assets/emoji/kiss.png?sprite?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.norm {
+	background: url('../assets/emoji/norm.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.rip {
+	background: url('../assets/emoji/rip.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.sad {
+	background: url('../assets/emoji/sad.png?sprite') no-repeat;
+    background-size: 32px;
+}
+
+.sleep {
+	background: url('../assets/emoji/sleep.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.smiling_eyes {
+	background: url('../assets/emoji/smiling_eyes.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.stars {
+	background: url('../assets/emoji/stars.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.sweat {
+	background: url('../assets/emoji/sweat.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.tongue {
+	background: url('../assets/emoji/tongue.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.upside-down {
+	background: url('../assets/emoji/upside-down.png?sprite') no-repeat;
+	background-size: 32px;
+}
+
+.wtf {
+	background: url('../assets/emoji/wtf.png?sprite') no-repeat;
+    background-size: 32px;
+}
+
+.XD {
+	background: url('../assets/emoji/XD.png?sprite') no-repeat;
+	background-size: 32px;
+}

@@ -64,6 +64,10 @@ function MessageList() {
         addMessInLocal(newMess)
     }
 
+    function SendSmile(key) {
+        setInput(`${input}:${key}:`)
+    }
+
     function addMessInLocal(newMess) {
         const chatHistory = JSON.parse(localStorage.getItem('chats')) || []
         if (chatHistory[chatId].messages === '') {
@@ -228,6 +232,7 @@ function MessageList() {
                 startRecord={startRecord}
                 placeholder="Сообщение"
                 handleChange={handleTextChange}
+                SendSmile={SendSmile}
             />
         </div>
     )

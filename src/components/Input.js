@@ -5,9 +5,12 @@ import { ReactComponent as Attachment } from '../assets/buttons/attachment.svg'
 import { ReactComponent as Location } from '../assets/buttons/location.svg'
 import { ReactComponent as Micro } from '../assets/buttons/micro.svg'
 import { ReactComponent as PictureSvg } from '../assets/buttons/picture.svg'
+import { ReactComponent as EmojiKey } from '../assets/emoji/smile.svg'
+import Emoji from './EmojiKeyboard'
 
 function Input(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [emojisIsOpen, setemojislIsOpen] = useState(false)
 
     function openAttachMenu() {
         setModalIsOpen(true)
@@ -27,6 +30,15 @@ function Input(props) {
         closeAttachMenu()
     }
 
+    function EmojiKeyboard() {
+        if (emojisIsOpen) {
+            setemojislIsOpen(false)
+        } 
+        else {
+            setemojislIsOpen(true)
+        }
+    }
+
     return (
         <>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
@@ -38,8 +50,10 @@ function Input(props) {
                     placeholder={props.placeholder}
                     onChange={props.handleChange}
                 />
+                <EmojiKey className={styles.Button} onClick={EmojiKeyboard}/>
                 <Attachment className={styles.Button} onClick={openAttachMenu} />
             </form>
+            <Emoji open={emojisIsOpen} SendSmile={props.SendSmile}/>
             {modalIsOpen &&
                 <div className={styles.modalwrapper}>
                     <div id="menu" className={styles.addAttach}>
@@ -48,14 +62,14 @@ function Input(props) {
                         <Micro className={styles.stopRec} id="stopRec" onClick={closeAttachMenu} />
                         <label htmlFor="image">
                             <Picture />
-                        <input
+                            <input
                             id="image"
                             type="file"
                             multiple
                             accept="image/*"
                             style={{ display: 'none' }}
                             onChange={addImage}
-                        />
+                            />
                         </label>
                     </div>
                     <div aria-label="butt" className={styles.overlay} role="button" tabIndex={0} onClick={closeAttachMenu} onKeyDown={closeAttachMenu} />
@@ -78,6 +92,7 @@ Input.propTypes = {
     getLocation: PropTypes.func.isRequired,
     addImage: PropTypes.func.isRequired,
     startRecord: PropTypes.func.isRequired,
+    SendSmile: PropTypes.func.isRequired,
 }
 
 export default Input
