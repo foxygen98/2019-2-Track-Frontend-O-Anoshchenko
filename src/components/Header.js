@@ -1,21 +1,21 @@
 import React from 'react'
-import styles from '../styles/Header.module.css'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import styles from '../styles/Header.module.css'
 import { ReactComponent as MenuButtonSvg } from '../assets/buttons/menu.svg'
 import { ReactComponent as SearchButtonSvg } from '../assets/buttons/search.svg'
 import { ReactComponent as Settings } from '../assets/buttons/settings.svg'
 import { ReactComponent as ReturnButtonSvg } from '../assets/buttons/return_back.svg'
 import { ReactComponent as CheckMarkSvg } from '../assets/buttons/checkmark.svg'
 import Avatar from './Avatar.js'
-import { Link } from 'react-router-dom'
 
 function Header(props) {
     return (
-        <React.Fragment>
+        <>
             {props.header === 'chatlist' && <HeadOfChatList />}
             {props.header === 'messagelist' && <HeadOfPersonalChat />}
             {props.header === 'editprofile' && <HeadOfProfile />}
-        </React.Fragment>
+        </>
     )
 }
 
@@ -32,7 +32,7 @@ function HeadOfChatList() {
 function HeadOfPersonalChat() {
     return (
         <div className={styles.Header}>
-            <Link to={'/'}>
+            <Link to="/">
                 <ReturnButton />
             </Link>
             <Avatar />
@@ -46,7 +46,7 @@ function HeadOfPersonalChat() {
 function HeadOfProfile() {
     return (
         <div className={styles.Header}>
-            <Link to={'/'}>
+            <Link to="/">
                 <ReturnButton />
             </Link>
             <TitleOfProfile />

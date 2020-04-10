@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import styles from '../styles/Input.module.css'
 import PropTypes from 'prop-types'
+import styles from '../styles/Input.module.css'
 import { ReactComponent as Attachment } from '../assets/buttons/attachment.svg'
 import { ReactComponent as Location } from '../assets/buttons/location.svg'
 import { ReactComponent as Micro } from '../assets/buttons/micro.svg'
@@ -28,10 +28,10 @@ function Input(props) {
     }
 
     return (
-        <React.Fragment>
+        <>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
                 <input
-                    id={'message_input'}
+                    id="message_input"
                     className={styles.Input}
                     type="text"
                     value={props.value}
@@ -43,12 +43,11 @@ function Input(props) {
             {modalIsOpen &&
                 <div className={styles.modalwrapper}>
                     <div id="menu" className={styles.addAttach}>
-                        <Location id={'get_location'} className={styles.Attachment} onClick={getLocation} />
+                        <Location id="get_location" className={styles.Attachment} onClick={getLocation} />
                         <Micro className={styles.Attachment} onClick={props.startRecord} id="rec" />
                         <Micro className={styles.stopRec} id="stopRec" onClick={closeAttachMenu} />
                         <label htmlFor="image">
                             <Picture />
-                        </label>
                         <input
                             id="image"
                             type="file"
@@ -57,11 +56,11 @@ function Input(props) {
                             style={{ display: 'none' }}
                             onChange={addImage}
                         />
+                        </label>
                     </div>
-                    <div className={styles.overlay} role="button" tabIndex={0} onClick={closeAttachMenu} />
-                </div>
-            }
-        </React.Fragment>
+                    <div aria-label="butt" className={styles.overlay} role="button" tabIndex={0} onClick={closeAttachMenu} onKeyDown={closeAttachMenu} />
+                </div>}
+        </>
     )
 }
 

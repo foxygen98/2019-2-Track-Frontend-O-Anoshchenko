@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import Input from './Input.js'
 import Message from './Messages.js'
 import styles from '../styles/Messages.module.css'
-import { useParams } from 'react-router-dom'
 
 function MessageList() {
     const { chatId } = useParams()

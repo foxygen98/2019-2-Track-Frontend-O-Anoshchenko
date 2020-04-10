@@ -49,6 +49,7 @@
       "never"
     ],
     "react/prefer-stateless-function": 0,
+    "react/destructuring-assignment": [2, "never"],
     "import/no-named-as-default": 0,
     "react/jsx-filename-extension": [
       1,

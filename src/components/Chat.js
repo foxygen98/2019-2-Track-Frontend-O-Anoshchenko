@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import Avatar from './Avatar.js'
 import { ReactComponent as Status } from '../assets/buttons/status.svg'
 import styles from '../styles/Chat.module.css'
-import { Link } from 'react-router-dom'
 
 function Chat (props) {
     return(
