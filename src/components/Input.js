@@ -39,6 +39,10 @@ function Input(props) {
         }
     }
 
+    function closeEmojiKeyboard() {
+        setemojislIsOpen(false)
+    }
+
     return (
         <>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
@@ -48,6 +52,7 @@ function Input(props) {
                     type="text"
                     value={props.value}
                     placeholder={props.placeholder}
+                    onClick={closeEmojiKeyboard}
                     onChange={props.handleChange}
                 />
                 <EmojiKey className={styles.Button} onClick={EmojiKeyboard}/>
