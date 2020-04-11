@@ -24,7 +24,6 @@ const emojiKeys = [
 ]
 
 function Emoji(props) {
-    const {SendSmile} = props.SendSmile
     const emojis = []
     for (let i = 0; i < emojiKeys.length; i += 1) {
         const key = emojiKeys[i]
@@ -34,8 +33,8 @@ function Emoji(props) {
                         role = "button"
                         aria-label="butt"
                         tabIndex={0}
-                        onClick={() => SendSmile(key)}
-                        onKeyDown={() => SendSmile(key)}
+                        onClick={() => props.SendSmile(key)}
+                        onKeyDown={() => props.SendSmile(key)}
                     />)
     }
     return (
