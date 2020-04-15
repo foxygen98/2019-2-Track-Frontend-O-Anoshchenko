@@ -61,10 +61,10 @@ function ChatList (props) {
     }
     
     return (
-        <React.Fragment>
+        <>
             <div className={styles.ChatSpace}>{chats}</div>
-            <Pen id={'CreateChat'} className={styles.Pen} onClick={handleCreateChat} />
-        </React.Fragment>
+            <Pen id="CreateChat" className={styles.Pen} onClick={handleCreateChat} />
+        </>
     )
 }
 

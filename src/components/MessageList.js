@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import Input from './Input.js'
 import Message from './Messages.js'
 import styles from '../styles/Messages.module.css'
-import { useParams } from 'react-router-dom'
 
 function MessageList() {
     const { chatId } = useParams()
@@ -64,6 +64,10 @@ function MessageList() {
         addMessInLocal(newMess)
     }
 
+    function SendSmile(key) {
+        setInput(`${input}:${key}:`)
+    }
+
     function addMessInLocal(newMess) {
         const chatHistory = JSON.parse(localStorage.getItem('chats')) || []
         if (chatHistory[chatId].messages === '') {
@@ -90,8 +94,6 @@ function MessageList() {
                 maximumAge: 30000,
             }
             navigator.geolocation.getCurrentPosition(success, errorFunc, geoOptions)
-        } else {
-            alert('Geolocation is not supported for this Browser/OS version yet!')
         }
     }
 
@@ -101,7 +103,7 @@ function MessageList() {
     }
 
     function errorFunc(err) {
-        console.log(`ERROR(${err.code}): ${err.message}`)
+        // console.log(`ERROR(${err.code}): ${err.message}`)
     }
 
     function getTime() {
@@ -198,13 +200,9 @@ function MessageList() {
         async function getMedia() {
 			let stream = null
 
-			try {
-				const constraints = { audio: true }
-				stream = await navigator.mediaDevices.getUserMedia(constraints)
-				recordAudio(stream)
-			} catch (error) {
-				console.log(error.message)
-			}
+			const constraints = { audio: true }
+			stream = await navigator.mediaDevices.getUserMedia(constraints)
+			recordAudio(stream)
         }
 
         getMedia()
@@ -228,6 +226,7 @@ function MessageList() {
                 startRecord={startRecord}
                 placeholder="Сообщение"
                 handleChange={handleTextChange}
+                SendSmile={SendSmile}
             />
         </div>
     )

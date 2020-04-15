@@ -1,9 +1,9 @@
 import React from 'react'
+import { HashRouter, Route } from 'react-router-dom'
 import Header from './Header.js'
 import ChatList from './ChatList.js'
 import MessageList from './MessageList'
 import Profile from './Profile'
-import { HashRouter, Route } from 'react-router-dom'
 
 class Messenger extends React.Component {
     render() {
