@@ -2,28 +2,6 @@ import TranslateUtils from '../translate'
 import checkCache from './Cache'
 import * as T from './types'
 
-const input1: T.ITranslate = {
-    text: ['Hello world!'],
-    lang: 'ru'
-}
-
-
-const input2: T.ITranslate = {
-    text: ['Привет!'],
-    lang: 'ru-en',
-    format: 'html'
-}
-
-const input3: T.ITranslate = {
-    text: ['Hello world!'],
-    lang: 'ru'
-}
-
-const input4: T.ITranslate = {
-    text: ['Hehehe!'],
-    lang: 'ru'
-}
-
 const input: T.ITranslate[] = [
     {
         text: ['Hello'],
