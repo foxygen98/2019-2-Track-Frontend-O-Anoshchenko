@@ -8,6 +8,6 @@ export default function checkCache(param: T.ITranslate): T.ITranslate | undefine
     }
 }
 
-export function saveCache(param: T.ITranslate, data: T.IAPIResponse): any {
+export function saveCache(param: T.ITranslate, data: T.IAPIResponse): void {
     cache[`${param}${param.lang}`] = data
 }
