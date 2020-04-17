@@ -19,4 +19,4 @@ deploy:
     branch:
       - master
       - devel
-      - Homework3
+      - Typescript
