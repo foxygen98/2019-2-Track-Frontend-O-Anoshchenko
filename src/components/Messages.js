@@ -2,27 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from '../styles/Messages.module.css'
 import emoji from '../styles/Emoji.module.css'
-
-const emojiKeys = [
-    'confounded',
-    'cool',
-    'cry',
-    'demon',
-    'grinning_face',
-    'heart-eyes',
-    'kiss',
-    'norm',
-    'rip',
-    'sad',
-    'sleep',
-    'smiling_eyes',
-    'stars',
-    'sweat',
-    'tongue',
-    'upside-down',
-    'wtf',
-    'XD',
-]
+import { emojiKeys } from './EmojiKeyboard'
 
 function Message(props) {
     return (

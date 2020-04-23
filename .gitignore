@@ -148,3 +148,4 @@ jest_*/
 
 build/
 package-lock.json
+ts/utils/translate/*.js

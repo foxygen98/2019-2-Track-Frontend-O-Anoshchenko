@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from '../styles/Emoji.module.css'
 
-const emojiKeys = [
+export const emojiKeys = [
     'confounded',
     'cool',
     'cry',
