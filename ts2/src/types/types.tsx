@@ -15,3 +15,10 @@ export interface IScore {
 export interface IProps {
     math: IScore[]
 }
+
+export interface IMargin {
+    top: number
+    right: number
+    bottom: number
+    left: number
+}

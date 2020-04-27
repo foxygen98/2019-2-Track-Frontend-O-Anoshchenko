@@ -7,13 +7,8 @@ const MyD3Components = (props: T.IProps) => {
     const ref = useRef(null)
     const width = 1000
     const height = 500
-    interface IMargin {
-        top: number
-        right: number
-        bottom: number
-        left: number
-    }
-    const margin: IMargin = { top: 100, right: 0, bottom: 20, left: 0 }
+
+    const margin: T.IMargin = { top: 100, right: 0, bottom: 20, left: 0 }
 
 
     useEffect(() => {
