@@ -9,7 +9,7 @@ async function saveData(): Promise<T.IProps> {
   let resultData: T.IProps = {math: []}
   resultData = await d3.csv('https://raw.githubusercontent.com/foxygen98/13/master/StudentsPerformance.csv').then((dt: d3.DSVRowArray<string>) => {
     dt.forEach((i: d3.DSVRowString) => {
-      if (i.Math !== undefined) {
+      if (i.Math) {
         i.Math = `${Math.floor(+i.Math/2) * 2}`
         if (data.math[i.Math] === undefined) {
           data.math[i.Math] = 0
