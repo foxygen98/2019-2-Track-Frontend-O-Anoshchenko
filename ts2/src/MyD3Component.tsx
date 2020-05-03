@@ -14,24 +14,23 @@ const MyD3Components = (props: T.IProps) => {
     useEffect(() => {
         if (props.math && ref.current) {
 
-            const x = d3.scaleBand()
+            const x: d3.ScaleBand<string> = d3.scaleBand()
                 .domain(props.math.map((d: T.IScore) => d.name))
                 .range([margin.left, width - margin.right])
                 .padding(0.1)
 
-            const y = d3.scaleLinear()
+            const y: d3.ScaleLinear<number, number> = d3.scaleLinear()
                 .domain([0, d3.max(props.math, (d: T.IScore) => d.value) as number]).nice()
                 .range([height - margin.bottom, margin.top])
 
-            const xAxis = (g: any) => g
+            const xAxis = (g: d3.Selection<any, unknown, null, undefined>) => g
                 .attr("transform", `translate(0,${height - margin.bottom})`)
                 .call(d3.axisBottom(x).tickSizeOuter(0))
-            // .text('lalal')
 
-            const yAxis = (g: any) => g
+            const yAxis = (g: d3.Selection<any, unknown, null, undefined>) => g
                 .attr("transform", `translate(${margin.left},0)`)
                 .call(d3.axisLeft(y))
-                .call((g: any) => g.select(".domain").remove())
+                .call((g: d3.Selection<any, unknown, null, undefined>) => g.select(".domain").remove())
 
             const svg = d3.select(ref.current)
                 .attr("viewBox", `0, 0, ${width}, ${height}`)
