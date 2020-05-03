@@ -32,7 +32,7 @@ const MyD3Components = (props: T.IProps) => {
                 .call(d3.axisLeft(y))
                 .call((g: d3.Selection<any, unknown, null, undefined>) => g.select(".domain").remove())
 
-            const svg = d3.select(ref.current)
+            const svg: d3.Selection<null, unknown, null, undefined> = d3.select(ref.current)
                 .attr("viewBox", `0, 0, ${width}, ${height}`)
 
             svg.append("g")
@@ -52,7 +52,7 @@ const MyD3Components = (props: T.IProps) => {
             svg.append("g")
                 .call(yAxis)
 
-            let g = svg.append("g")
+            let g: d3.Selection<SVGGElement, unknown, null, undefined> = svg.append("g")
 
             g.append("text")
                 .attr("x", (width / 2))
