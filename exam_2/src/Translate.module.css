@@ -1,0 +1,56 @@
+.header {
+    margin: 20px;
+    font-size: 25px;
+    color: gray;
+}
+
+.TranslateBlock{
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    background-color: whitesmoke;
+}
+
+.InputRight {
+    border-bottom: 0.3vh solid #9b9b9b;
+    border-radius: 0vh 0vh 1vh 0vh;
+    background-color: rgb(236, 235, 235);
+    width: 550px;
+    height: 250px;
+    font-size: 25px;
+    padding: 20px;
+    resize: none;
+}
+
+.InputLeft {
+    border-bottom: 0.3vh solid #9b9b9b;
+    border-radius: 0vh 0vh 0vh 1vh;
+    width: 550px;
+    height: 250px;
+    font-size: 25px;
+    padding: 20px;
+    resize: none;
+}
+
+textarea {
+    outline: none;
+    
+}
+
+button {
+    outline: none;
+    
+}
+
+.LangSelection {
+    display: flex;
+}
+
+.Name {
+    border: none;
+    background-color: whitesmoke;
+    color: blue;
+    margin: 50px 10px 0px 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
