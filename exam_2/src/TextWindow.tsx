@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Translate.module.css'
 import * as T from './types'
 import * as TU from './utils/translate/types'
@@ -17,11 +17,11 @@ function Translate() {
         if (props.for === 'from') {
             setLang(props.lang)
             setLeftPress(props.lang)
+            // console.log(lang, leftPress)
         } else {
             setTLang(props.lang)
             setRightPress(props.lang)
         }
-        newTranslate()
     }
 
     function handleSubmit(event: React.KeyboardEvent<HTMLTextAreaElement>): void {
@@ -35,25 +35,24 @@ function Translate() {
     }
 
     async function newTranslate(): Promise<void> {
-        const fromLang = languages[lang]
-        let toLang = languages[Tlang]
-        if (fromLang !== '') {
-            toLang = `${fromLang}-${toLang}`
-            console.log(toLang)
+        if (input !== '') {
+            const fromLang = languages[lang]
+            let toLang = languages[Tlang]
+            if (fromLang !== '') {
+                toLang = `${fromLang}-${toLang}`
+            }
+            const inputText: TU.ITranslate[] = [{
+                text: [input],
+                lang: toLang
+            }]
+            const transl = await TranslateUtils.translate(inputText[0])
+            setTranslated(transl)
         }
-        const inputText: TU.ITranslate[] = [{
-            text: [input],
-            lang: toLang
-        }]
-        const transl = await TranslateUtils.translate(inputText[0])
-        setTranslated(transl)
     }
 
     function textChange(event: React.ChangeEvent<HTMLTextAreaElement>): void {
-        console.log('hi')
         setInput(event.target.value)
-        console.log(input)
-        setTranslated({ code: 200, lang: '', text: [''] })
+        newTranslate()
     }
 
     function LangName(props: T.IProps) {
@@ -65,6 +64,10 @@ function Translate() {
             <button className={style} onClick={() => ChangeLang(props)}>{props.lang}</button>
         )
     }
+
+    useEffect(() => {
+		newTranslate()
+	}, [lang, Tlang])
 
     return (
         <>
