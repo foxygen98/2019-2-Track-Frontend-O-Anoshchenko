@@ -1,14 +1,17 @@
 .header {
-    margin: 20px;
-    font-size: 25px;
+    margin: 2vh;
+    height: auto;
+    font-size: 4vh;
     color: gray;
 }
 
 .TranslateBlock{
+    margin-top: -1.4vh;
     display: flex;
     justify-content: center;
-    height: 200px;
-    background-color: whitesmoke;
+    height: 91vh;
+    width: 100vw;
+    background-color: lavenderblush;
 }
 
 .InputRight {
@@ -16,23 +19,26 @@
     border-left: 0vh;
     border-bottom: 0.3vh solid #9b9b9b;
     border-radius: 0vh 0vh 1vh 0vh;
-    background-color: rgb(236, 235, 235);
-    width: 550px;
-    height: 250px;
-    font-size: 25px;
-    padding: 20px;
+    background-color: rgb(253, 245, 248);
+    width: 40vw;
+    height: 40vh;
+    font-size: 4vh;
+    padding: 1vw;
     resize: none;
+    box-shadow: 8px 8px 8px #9b9b9b;
+    margin-left: 0;
 }
 
 .InputLeft {
     border: 0.1vh solid #9b9b9b;
     border-bottom: 0.3vh solid #9b9b9b;
     border-radius: 0vh 0vh 0vh 1vh;
-    width: 550px;
-    height: 250px;
-    font-size: 25px;
-    padding: 20px;
+    width: 40vw;
+    height: 40vh;
+    font-size: 4vh;
+    padding: 1vw;
     resize: none;
+    box-shadow: 8px 8px 8px #9b9b9b;
 }
 
 textarea {
@@ -50,9 +56,11 @@ button {
     border: 0.1vh solid #9b9b9b;
     border-bottom: 0px;
     border-left: 1px solid #9b9b9b;
+    border-right: 0;
     background-color: white;
     border-radius: 1vh 0vh 0vh 0vh;
     height: 9vh;
+    width: 42vw;
 }
 
 .LangSelectionRight {
@@ -63,21 +71,22 @@ button {
     background-color: white;
     border-radius: 0vh 1vh 0vh 0vh;
     height: 9vh;
+    width: 42.1vw;
+    box-shadow: 8px 8px 8px #9b9b9b;
+    margin-left: -0.1vw;
 }
 
 .Name {
     border: 0vh;
     background-color: white;
-    color: blue;
-    margin: 10px;
-    margin-bottom: 0px;
-    font-size: 20px;
+    color: hotpink;
+    margin: 0.5vw;
+    font-size: 1.8vw;
     cursor: pointer;
-    animation: anim 2s;
 }
 
 .Name:active {
-    border-bottom: 1vh solid blue;
+    border-bottom: 0.5vh solid hotpink;
 }
 
 .Box {
