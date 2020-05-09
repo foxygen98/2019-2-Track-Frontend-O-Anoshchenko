@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Translate.module.css'
-import * as T from './types/types'
-import * as TU from './utils/translate/types'
-import TranslateUtils from './utils/translate'
-import { languages } from './types/constants'
+import styles from '../styles/Translate.module.css'
+import * as T from '../types/types'
+import * as TU from '../utils/translate/types'
+import TranslateUtils from '../utils/translate'
+import { languages } from '../types/constants'
 
 function Translate() {
     const [lang, setLang]: [string, React.Dispatch<React.SetStateAction<string>>] = useState<string>('DETECT')
