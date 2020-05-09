@@ -17,7 +17,6 @@ function Translate() {
         if (props.for === 'from') {
             setLang(props.lang)
             setLeftPress(props.lang)
-            // console.log(lang, leftPress)
         } else {
             setTLang(props.lang)
             setRightPress(props.lang)
@@ -66,7 +65,8 @@ function Translate() {
     }
 
     useEffect(() => {
-		newTranslate()
+        newTranslate()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [lang, Tlang])
 
     return (
