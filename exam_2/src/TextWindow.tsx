@@ -24,7 +24,7 @@ function Translate() {
         }
     }
 
-    async function handleSubmit(event: React.KeyboardEvent<HTMLTextAreaElement>): Promise<any> {
+    async function handleSubmit(event: React.KeyboardEvent<HTMLTextAreaElement>): Promise<void> {
         if (event.charCode === 13 || event.charCode === 32) {
             if (event.charCode === 32) {
                 setInput(input + event.key)
