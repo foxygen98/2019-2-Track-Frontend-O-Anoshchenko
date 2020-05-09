@@ -7,7 +7,7 @@ node_js:
 #  - node_modules
 
 before_install:
-  - cd ts2
+  - cd exam_2
 
 script:
   - npm run lint
@@ -18,9 +18,9 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $repo_token
-  local_dir: ts2/build
+  local_dir: exam_2/build
   on:
     branch:
       - master
       - devel
-      - Typescript2
+      - exam_2

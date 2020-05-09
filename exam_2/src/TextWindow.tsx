@@ -1,45 +1,82 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState } from 'react';
 import styles from './Translate.module.css'
 import * as T from './types'
+import * as TU from './utils/translate/types'
+import TranslateUtils from './utils/translate'
+
+const languages: T.ILang = {
+    RUSSIAN: 'ru',
+    ENGLISH: 'en',
+    DETECT: ''
+}
 
 function Translate() {
-    const [lang, setLang]: [string, React.Dispatch<React.SetStateAction<string>>] = useState<string>('DETECT LANGUAGE')
+    const [lang, setLang]: [string, React.Dispatch<React.SetStateAction<string>>] = useState<string>('DETECT')
+    const [Tlang, setTLang]: [string, React.Dispatch<React.SetStateAction<string>>] = useState<string>('RUSSIAN')
     const [input, setInput]: [string, React.Dispatch<React.SetStateAction<string>>] = useState<string>('')
+    const [translated, setTranslated] = useState<TU.IAPIResponse>({ code: 200, lang: '', text: [''] })
 
-    function ChangeLang(event: MouseEvent): any {
-        event.preventDefault();
-        setLang('lang')
-    }
-
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>): any {
-        event.preventDefault()
-        if (input === '') {
-            return
+    function ChangeLang(props: T.IProps): void {
+        if (props.for === 'from') {
+            setLang(props.lang)
+        } else {
+            setTLang(props.lang)
         }
-        setInput('')
     }
 
-    function handleTextChange(event: any) {
+    async function handleSubmit(event: React.KeyboardEvent<HTMLTextAreaElement>): Promise<any> {
+        if (event.charCode === 13 || event.charCode === 32) {
+            if (event.charCode === 32) {
+                setInput(input + event.key)
+            }
+            event.preventDefault()
+            const fromLang = languages[lang]
+            let toLang = languages[Tlang]
+            if (fromLang !== '') {
+                toLang = `${fromLang}-${toLang}`
+                console.log(toLang)
+            }
+            const inputText: TU.ITranslate[] = [{
+                text: [input],
+                lang: toLang
+            }]
+            const transl = await TranslateUtils.translate(inputText[0])
+            setTranslated(transl)
+        }
+    }
+
+    function textChange(event: React.ChangeEvent<HTMLTextAreaElement>): void {
+        console.log('hi')
         setInput(event.target.value)
+        console.log(input)
+        setTranslated({ code: 200, lang: '', text: [''] })
     }
 
-    function LangName(this: T.IProps, props: T.IProps) {
+    function LangName(props: T.IProps) {
         return (
-            <button className={styles.Name} onClick={ChangeLang}>{props.lang}</button>
+            <button className={`${styles.Name} ${styles[props.lang]}`} onClick={() => ChangeLang(props)}>{props.lang}</button>
         )
     }
 
     return (
         <>
-            <form className={styles.Form}>
-                <div className={styles.LangSelection}>
-                    <LangName lang={'DETECT LANGUAGE'} />
-                    <LangName lang={'ENGLISH'} />
-                    <LangName lang={'RUSSIAN'} />
+            <div className={styles.Box}>
+                <div>
+                    <div className={styles.LangSelectionLeft}>
+                        <LangName lang={'DETECT'} for={'from'} />
+                        <LangName lang={'ENGLISH'} for={'from'} />
+                        <LangName lang={'RUSSIAN'} for={'from'} />
+                    </div>
+                    <textarea className={styles.InputLeft} onKeyPress={handleSubmit} onChange={textChange} value={input} />
                 </div>
-                <textarea className={styles.InputLeft} lang={lang} value={lang} />
-                <textarea disabled className={styles.InputRight} value={'Перевод'} />
-            </form>
+                <div>
+                    <div className={styles.LangSelectionRight}>
+                        <LangName lang={'ENGLISH'} for={'to'} />
+                        <LangName lang={'RUSSIAN'} for={'to'} />
+                    </div>
+                    <textarea disabled className={styles.InputRight} value={translated.text} />
+                </div>
+            </div>
         </>
     );
 }
