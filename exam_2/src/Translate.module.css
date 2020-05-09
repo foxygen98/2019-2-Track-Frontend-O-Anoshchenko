@@ -1,5 +1,5 @@
 .header {
-    margin: 2vh;
+    margin: 3vh;
     height: auto;
     font-size: 4vh;
     color: gray;
@@ -79,17 +79,18 @@ button {
 .Name {
     border: 0vh;
     background-color: white;
-    color: hotpink;
+    color: gray;
     margin: 0.5vw;
     font-size: 1.8vw;
     cursor: pointer;
 }
 
-.Name:active {
-    border-bottom: 0.5vh solid hotpink;
-}
-
 .Box {
     display: flex;
     padding: 50px;
+}
+
+.Press {
+    color: hotpink;
+    border-bottom: 0.6vh solid hotpink;
 }
