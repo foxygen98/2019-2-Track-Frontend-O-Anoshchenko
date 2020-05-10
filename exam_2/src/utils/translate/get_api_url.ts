@@ -1,4 +1,4 @@
-import {api_key, api_url} from './constants'
+// import {api_key, api_url} from './constants'
 import * as T from './types'
 
 export default function get_api_url (param: T.ITranslate): string {

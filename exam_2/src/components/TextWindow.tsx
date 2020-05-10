@@ -24,10 +24,7 @@ function Translate() {
     }
 
     function handleSubmit(event: React.KeyboardEvent<HTMLTextAreaElement>): void {
-        if (event.charCode === 13 || event.charCode === 32) {
-            if (event.charCode === 32) {
-                setInput(input + event.key)
-            }
+        if (event.charCode === 13) {
             event.preventDefault()
             newTranslate()
         }
@@ -46,6 +43,8 @@ function Translate() {
             }]
             const transl = await TranslateUtils.translate(inputText[0])
             setTranslated(transl)
+        } else {
+            setTranslated({ code: 200, lang: '', text: [''] })
         }
     }
 
