@@ -23,10 +23,9 @@ const input: T.ITranslate[] = [
 ]
 
 async function test() {
-    let i: number = 0
-    for (i; i < input.length; i += 1) {
-        const translated = await TranslateUtils.translate(input[i])
-        console.log(input[i])
+    for (const testData of input) {
+        const translated = await TranslateUtils.translate(testData)
+        console.log(testData)
         console.log(translated)
     }
 }
