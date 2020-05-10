@@ -8,9 +8,7 @@ node_js:
 
 before_install:
   - cd exam_2
-
-env:
-  - api_url='https://translate.yandex.net/api/v1.5/tr.json/translate'
+  - echo "export const api_url: string = "$API_URL > ./src/utils/translate/constants.ts
 
 script:
   - npm run lint
