@@ -3,15 +3,18 @@ import PropTypes from 'prop-types'
 import styles from '../styles/Messages.module.css'
 import emoji from '../styles/Emoji.module.css'
 import { emojiKeys } from './EmojiKeyboard'
+import Boundary from './Boundary'
 
 function Message(props) {
     return (
-        <div>
-            <div id='message' className={styles.result}>
-                <Content Content={props.Content} type={props.type} />
-                <div className={styles.time}>{props.messageTime}</div>
+        <Boundary>
+            <div>
+                <div id='message' className={styles.result}>
+                    <Content Content={props.Content} type={props.type} />
+                    <div className={styles.time}>{props.messageTime}</div>
+                </div>
             </div>
-        </div>
+        </Boundary>
     )
 }
 
