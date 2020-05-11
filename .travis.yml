@@ -19,6 +19,8 @@ deploy:
   skip_cleanup: true
   github_token: $repo_token
   local_dir: exam_2/build
+  api_url: $API_URL
+  api_key: $API_KEY
   on:
     branch:
       - master
