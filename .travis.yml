@@ -9,6 +9,9 @@ node_js:
 before_install:
   - cd exam_2
 
+env:
+  - api_url=$API_URL api_key=$API_KEY 
+
 script:
   - npm run lint
   - npm run test
