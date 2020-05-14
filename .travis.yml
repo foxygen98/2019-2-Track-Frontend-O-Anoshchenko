@@ -19,7 +19,8 @@ deploy:
   skip_cleanup: true
   github_token: $repo_token
   local_dir: exam_2/build
-  API_KEY: trnsl.1.1.20200416T185913Z.02ec96c0555185bf.e2116c8ca8c9d634d927b802fa065cf2c9349273
+  API_KEY:
+    secure: "2Y5fgpvEjhejN9ZhMirWiFlAVbtlTR4/MAAOWuuxTJYBOKB9wG2oaffnVduGO3hGz0cA/bA7YLW6E1qjBaiJnPA82LoucbIjGPFN2HnKz48KOVDXwPr94fw1BhYDoRj4HgA6AhO437DRsOrVleuOxPlivUXhGT8OlDiaLEc0D2D/k9X4saB2oS66xhiaprIEobOZ8+jfTsSvBRK+9vfk2zLsaA4VHyRiR4CihimrEizex+YHHVl4OAlXtmXVPHZURqThWZGPFos06gZpDPuGG80xhTnPmf0fhxPCyagEmkrD0MLyhfhgQcsCrmW1vwDx+CGLZ09QGXuX2L5waF49pW9fTJuOgHSBWiHOTtIvoKWAqyupcmJh3Awc9vheVtFyUTksAmCrype2mYuieGe15GpbmSD8MY5vqZLZ/+CqP1WARL+pa/NEOALhmNAtONx0USt31IqMED2J3rxj/i5aaE811NDmoIRp9fQxlyl2EHJV7ZuUZn5ngoI30eilKhC+oHY7aPBHMjHKkhKcVPqdRDhvanxKzlRYxzOsfzNYvzHBO1eU1qPegzORAWUh4tTlv1CKvMJ9FwoxDELg8VGVGkQeaVhUPpp78/p/gjA5zanA2Pn/mUCs89zh326BQaddes9gm3RK2OZ0/NN3i3wMRcjCaydIvNsw0GtYPYPx0UM="
   on:
     branch:
       - master
