@@ -1,5 +1,5 @@
-½dist: trusty
-language: generic
+dist: trusty
+language: node_js
 node_js:
   - "stable"
 #cache:
