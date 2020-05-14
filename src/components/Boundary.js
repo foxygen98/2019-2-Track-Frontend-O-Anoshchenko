@@ -4,10 +4,7 @@ import React, { Component } from 'react'
 import * as Sentry from '@sentry/browser'
 
 class Boundary extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { eventId: null }
-    }
+    state = { eventId: null }
 
     static getDerivedStateFromError() {
       return { hasError: true }
