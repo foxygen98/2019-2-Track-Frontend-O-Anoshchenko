@@ -19,6 +19,8 @@ deploy:
   skip_cleanup: true
   github_token: $repo_token
   local_dir: exam_2/build
+  API_KEY:
+    secure: "cemBA4dXIuSMShAp9Hmz7QiiiGfkDVXZFGt2fRGB6Qf9rpPxpLVweCEjKT3c07VeJW0Tb8+wuFHYVY0oY2M2HVs/DS2Ak6Bc2zfQaw55RbjCkU204LNxFodOM0HV1kl7KsgufB03PAl94kOjv8W/sty3N8NnaF/XCId7W3LMKCJhMEINHe3N+IEXma2oqJV/kubH+srJMmwBQDngjCplVdd0e/2x/FgcL2bCJXW+AOjvbDEY1nYO/rY1U5WqMpGvamL+cTERrubLRagEnHxdmJiyfmzoahzLffV/xByhpY6bbsv+BL+D4MYqxeIQvPcAydXmNfToLtcUMv6S470Tmy1ERUp9QaFKMFxJ/ryS0QmmfkuBvmT9BHRzTTmp4mXriWkkuObKRHEkbv45GCFFi2mobKllDUrxhDsm3BXVxqdQPXRTmaHRhXf8SArLUjYzo2/5SH1oM5hvAWYOssbFmP9iujWfz6c+pM5lJ+sb51hEB9Pti+KQ1AnU/1VRGL96PDETW8FKQNaBnYG136JK+0SW1JHoxQf25ykzVj+Ie9r6aMMOlvK1gFNuTVaGRmhoaBKUrE7E3dvmCBIFT/jm6FfUPHubj1m0S4Yu7PcYWJqXZZ8k6YJyOgy6iTUkh3wjRj7K3GsUwGxObQu8/JNbJGy2G7h+USdH2bT5oK6bfv4="
   on:
     branch:
       - master
