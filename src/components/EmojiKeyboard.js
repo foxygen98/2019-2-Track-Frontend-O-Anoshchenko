@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from '../styles/Emoji.module.css'
+import Boundary from './Boundary'
 
 export const emojiKeys = [
     'confounded',
@@ -38,12 +39,12 @@ function Emoji(props) {
                     />)
     }
     return (
-        <>
+        <Boundary>
             {props.open &&
                 <div className={styles.emojis} >
                     {emojis}
                 </div>}
-        </>
+        </Boundary>
     )
 }
 

@@ -7,6 +7,7 @@ import { ReactComponent as Micro } from '../assets/buttons/micro.svg'
 import { ReactComponent as PictureSvg } from '../assets/buttons/picture.svg'
 import { ReactComponent as EmojiKey } from '../assets/emoji/smile.svg'
 import Emoji from './EmojiKeyboard'
+import Boundary from './Boundary'
 
 function Input(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -33,7 +34,7 @@ function Input(props) {
     function EmojiKeyboard() {
         if (emojisIsOpen) {
             setemojislIsOpen(false)
-        } 
+        }
         else {
             setemojislIsOpen(true)
         }
@@ -44,7 +45,7 @@ function Input(props) {
     }
 
     return (
-        <>
+        <Boundary>
             <form onSubmit={props.handleSubmit} className={styles.Form}>
                 <input
                     id="message_input"
@@ -55,10 +56,10 @@ function Input(props) {
                     onClick={closeEmojiKeyboard}
                     onChange={props.handleChange}
                 />
-                <EmojiKey className={styles.Button} onClick={EmojiKeyboard}/>
+                <EmojiKey className={styles.Button} onClick={EmojiKeyboard} />
                 <Attachment className={styles.Button} onClick={openAttachMenu} />
             </form>
-            <Emoji open={emojisIsOpen} SendSmile={props.SendSmile}/>
+            <Emoji open={emojisIsOpen} SendSmile={props.SendSmile} />
             {modalIsOpen &&
                 <div className={styles.modalwrapper}>
                     <div id="menu" className={styles.addAttach}>
@@ -68,24 +69,26 @@ function Input(props) {
                         <label htmlFor="image">
                             <Picture />
                             <input
-                            id="image"
-                            type="file"
-                            multiple
-                            accept="image/*"
-                            style={{ display: 'none' }}
-                            onChange={addImage}
+                                id="image"
+                                type="file"
+                                multiple
+                                accept="image/*"
+                                style={{ display: 'none' }}
+                                onChange={addImage}
                             />
                         </label>
                     </div>
                     <div aria-label="butt" className={styles.overlay} role="button" tabIndex={0} onClick={closeAttachMenu} onKeyDown={closeAttachMenu} />
                 </div>}
-        </>
+        </Boundary>
     )
 }
 
 export function Picture() {
-    return(
-        <PictureSvg className={styles.Attachment} />
+    return (
+        <Boundary>
+            <PictureSvg className={styles.Attachment} />
+        </Boundary>
     )
 }
 

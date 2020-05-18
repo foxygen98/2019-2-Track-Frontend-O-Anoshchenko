@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ReactComponent as Pen } from '../assets/buttons/pen.svg'
 import styles from '../styles/ChatList.module.css'
 import Chat from './Chat.js'
+import Boundary from './Boundary'
 
 function ChatList (props) {
     let num = 0
@@ -61,10 +62,10 @@ function ChatList (props) {
     }
     
     return (
-        <>
+        <Boundary>
             <div className={styles.ChatSpace}>{chats}</div>
             <Pen id="CreateChat" className={styles.Pen} onClick={handleCreateChat} />
-        </>
+        </Boundary>
     )
 }
 

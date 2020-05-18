@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Input from './Input.js'
 import Message from './Messages.js'
 import styles from '../styles/Messages.module.css'
+import Boundary from './Boundary'
 
 function MessageList() {
     const { chatId } = useParams()
@@ -157,7 +158,7 @@ function MessageList() {
 
     function drop(event) {
         stopFunc(event)
-        const {files} = event.dataTransfer
+        const { files } = event.dataTransfer
         addImage(event, files)
     }
 
@@ -171,64 +172,66 @@ function MessageList() {
             stopRec.style.display = 'flex'
             let chunks = []
 
-			mediaRecorder.addEventListener('dataavailable', (event) => {
-				chunks.push(event.data)
-			})
+            mediaRecorder.addEventListener('dataavailable', (event) => {
+                chunks.push(event.data)
+            })
 
-			mediaRecorder.addEventListener('stop', () => {
-				const blob = new Blob(chunks, { type: mediaRecorder.mimeType })
-				chunks = []
+            mediaRecorder.addEventListener('stop', () => {
+                const blob = new Blob(chunks, { type: mediaRecorder.mimeType })
+                chunks = []
                 const audioURL = URL.createObjectURL(blob)
                 addPictureOrAudio(audioURL, 'audio')
-				const data = new FormData()
+                const data = new FormData()
                 data.append('audio', blob)
                 fetch('https://tt-front.now.sh/upload', {
-					method: 'POST',
-					body: data,
-				})
+                    method: 'POST',
+                    body: data,
+                })
             })
-            
+
             stopRec.addEventListener('click', () => {
                 mediaRecorder.stop()
                 stopRec.style.display = 'none'
                 rec.style.display = 'flex'
             },
-            { once: true },
+                { once: true },
             )
         }
 
         async function getMedia() {
-			let stream = null
+            let stream = null
 
-			const constraints = { audio: true }
-			stream = await navigator.mediaDevices.getUserMedia(constraints)
-			recordAudio(stream)
+            const constraints = { audio: true }
+            stream = await navigator.mediaDevices.getUserMedia(constraints)
+            recordAudio(stream)
         }
 
         getMedia()
     }
 
     return (
-        <div className={styles.Chat}>
-            <div 
-              className={styles.ChatSpace} 
-              onDragEnter={stopFunc}
-              onDragOver={stopFunc} 
-              onDrop={drop}
-            >
-                {reverse(messages)}
+        <Boundary>
+            <div className={styles.Chat}>
+                <div
+                    className={styles.ChatSpace}
+                    onDragEnter={stopFunc}
+                    onDragOver={stopFunc}
+                    onDrop={drop}
+                >
+                    {reverse(messages)}
+                </div>
+                <Input
+                    handleSubmit={handleSubmit}
+                    value={input}
+                    getLocation={getLocation}
+                    addImage={addImage}
+                    startRecord={startRecord}
+                    placeholder="Сообщение"
+                    handleChange={handleTextChange}
+                    SendSmile={SendSmile}
+                />
             </div>
-            <Input
-                handleSubmit={handleSubmit}
-                value={input}
-                getLocation={getLocation}
-                addImage={addImage}
-                startRecord={startRecord}
-                placeholder="Сообщение"
-                handleChange={handleTextChange}
-                SendSmile={SendSmile}
-            />
-        </div>
+        </Boundary>
     )
 
 }

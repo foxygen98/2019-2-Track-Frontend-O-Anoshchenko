@@ -1,41 +1,12 @@
-FROM node:alpine
+from node:11-alpine as build-stage
+WORKDIR /app
+COPY . ./
+RUN npm i
+RUN npm run build
 
-ARG NODE_ENV
-ENV NODE_ENV "$NODE_ENV"
+from nginx:1.15-alpine
+COPY --from=build-stage /app/build /usr/share/nginx/html/2019-2-Track-Frontend-O-Anoshchenko/
+COPY docker/frontend/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
-# System deps:
-
-RUN npm --version && apk add --no-cache \
-    autoconf \
-    automake \
-    bash \
-    build-base \
-    ca-certificates \
-    curl \
-    file \
-    g++ \
-    gcc \
-    git \
-    lcms2-dev \
-    libjpeg-turbo-dev \
-    libpng-dev \
-    make \
-    nasm \
-    wget \
-    zlib-dev
-
-
-# Installing dependencies:
-WORKDIR /code
-COPY package.json package-lock.json /code/
-
-# We do not need to tweak this command, `$NODE_ENV` does it for us.
-RUN npm install
-
-
-# Creating folders, and files for a project:
-COPY . /code
-
-
-# Project initialization:
-EXPOSE 4000

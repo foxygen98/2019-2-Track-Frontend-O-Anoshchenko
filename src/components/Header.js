@@ -8,95 +8,116 @@ import { ReactComponent as Settings } from '../assets/buttons/settings.svg'
 import { ReactComponent as ReturnButtonSvg } from '../assets/buttons/return_back.svg'
 import { ReactComponent as CheckMarkSvg } from '../assets/buttons/checkmark.svg'
 import Avatar from './Avatar.js'
+import Boundary from './Boundary'
 
 function Header(props) {
     return (
-        <>
+        <Boundary>
             {props.header === 'chatlist' && <HeadOfChatList />}
             {props.header === 'messagelist' && <HeadOfPersonalChat />}
             {props.header === 'editprofile' && <HeadOfProfile />}
-        </>
+        </Boundary>
     )
 }
 
 function HeadOfChatList() {
     return (
-        <div className={styles.Header}>
-            <MenuButton />
-            <Title />
-            <SearchButton />
-        </div>
+        <Boundary>
+            <div className={styles.Header}>
+                <MenuButton />
+                <Title />
+                <SearchButton />
+            </div>
+        </Boundary>
     )
 }
 
 function HeadOfPersonalChat() {
     return (
-        <div className={styles.Header}>
-            <Link to="/">
-                <ReturnButton />
-            </Link>
-            <Avatar />
-            <NameAndStat />
-            <SearchButton />
-            <Settings />
-        </div>
+        <Boundary>
+            <div className={styles.Header}>
+                <Link to="/">
+                    <ReturnButton />
+                </Link>
+                <Avatar />
+                <NameAndStat />
+                <SearchButton />
+                <Settings />
+            </div>
+        </Boundary>
     )
 }
 
 function HeadOfProfile() {
     return (
-        <div className={styles.Header}>
-            <Link to="/">
-                <ReturnButton />
-            </Link>
-            <TitleOfProfile />
-            <CheckMark />
-        </div>
+        <Boundary>
+            <div className={styles.Header}>
+                <Link to="/">
+                    <ReturnButton />
+                </Link>
+                <TitleOfProfile />
+                <CheckMark />
+            </div>
+        </Boundary>
     )
 }
 
 export function NameAndStat() {
     return (
-        <div className={styles.NameAndStat}>
-            <div className={styles.UserName}>Имя собеседника</div>
-            <div className={styles.Stat}>Был(а) в сети...</div>
-        </div>
+        <Boundary>
+            <div className={styles.NameAndStat}>
+                <div className={styles.UserName}>Имя собеседника</div>
+                <div className={styles.Stat}>Был(а) в сети...</div>
+            </div>
+        </Boundary>
     )
 }
 
 export function Title() {
-    return(
-        <div className={styles.Name}>Messenger</div>
+    return (
+        <Boundary>
+            <div className={styles.Name}>Messenger</div>
+        </Boundary>
     )
 }
 
 export function TitleOfProfile() {
     return (
-        <div className={styles.Name}>Edit Profile</div>
+        <Boundary>
+            <div className={styles.Name}>Edit Profile</div>
+        </Boundary>
     )
 }
 
 export function MenuButton() {
     return (
-        <MenuButtonSvg className={styles.MenuButton} />
+        <Boundary>
+            <MenuButtonSvg className={styles.MenuButton} />
+        </Boundary>
     )
 }
 
 export function SearchButton() {
     return (
-        <SearchButtonSvg className={styles.SearchButton} />
+        <Boundary>
+            <SearchButtonSvg className={styles.SearchButton} />
+        </Boundary>
     )
 }
 
 export function ReturnButton() {
     return (
-        <ReturnButtonSvg className={styles.ReturnButton} />
+        <Boundary>
+            <ReturnButtonSvg className={styles.ReturnButton} />
+        </Boundary>
     )
 }
 
 export function CheckMark() {
     return (
-        <CheckMarkSvg className={styles.CheckMark} />
+        <Boundary>
+            <CheckMarkSvg className={styles.CheckMark} />
+        </Boundary>
     )
 }
 
