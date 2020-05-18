@@ -149,3 +149,6 @@ jest_*/
 build/
 package-lock.json
 ts/utils/translate/*.js
+.gitsecret/keys/random_seed
+!*.secret
+

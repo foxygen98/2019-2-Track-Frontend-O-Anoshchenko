@@ -1,0 +1,96 @@
+.header {
+    margin: 3vh;
+    height: auto;
+    font-size: 4vh;
+    color: gray;
+}
+
+.TranslateBlock{
+    margin-top: -1.4vh;
+    display: flex;
+    justify-content: center;
+    height: 91vh;
+    width: 100vw;
+    background-color: lavenderblush;
+}
+
+.InputRight {
+    border: 0.1vh solid #9b9b9b;
+    border-left: 0vh;
+    border-bottom: 0.3vh solid #9b9b9b;
+    border-radius: 0vh 0vh 1vh 0vh;
+    background-color: rgb(253, 245, 248);
+    width: 40vw;
+    height: 40vh;
+    font-size: 4vh;
+    padding: 1vw;
+    resize: none;
+    box-shadow: 8px 8px 8px #9b9b9b;
+    margin-left: 0;
+}
+
+.InputLeft {
+    border: 0.1vh solid #9b9b9b;
+    border-bottom: 0.3vh solid #9b9b9b;
+    border-radius: 0vh 0vh 0vh 1vh;
+    width: 40vw;
+    height: 40vh;
+    font-size: 4vh;
+    padding: 1vw;
+    resize: none;
+    box-shadow: 8px 8px 8px #9b9b9b;
+}
+
+textarea {
+    border: none;
+    outline: none;
+}
+
+button {
+    outline: none;
+
+}
+
+.LangSelectionLeft {
+    display: flex;
+    border: 0.1vh solid #9b9b9b;
+    border-bottom: 0px;
+    border-left: 1px solid #9b9b9b;
+    border-right: 0;
+    background-color: white;
+    border-radius: 1vh 0vh 0vh 0vh;
+    height: 9vh;
+    width: 42vw;
+}
+
+.LangSelectionRight {
+    display: flex;
+    border: 0.1vh solid #9b9b9b;
+    border-bottom: 0px;
+    border-left: 0px;
+    background-color: white;
+    border-radius: 0vh 1vh 0vh 0vh;
+    height: 9vh;
+    width: 42.1vw;
+    box-shadow: 8px 8px 8px #9b9b9b;
+    margin-left: -0.1vw;
+}
+
+.Name {
+    border: 0vh;
+    background-color: white;
+    color: gray;
+    margin: 0.5vw;
+    font-size: 1.8vw;
+    cursor: pointer;
+}
+
+.Box {
+    display: flex;
+    padding: 50px;
+}
+
+.Press {
+    color: hotpink;
+    border-bottom: 0.6vh solid hotpink;
+}
