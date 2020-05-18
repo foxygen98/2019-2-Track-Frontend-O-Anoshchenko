@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/2019-2-Track-Frontend-O-Anoshchenko/static/css/main.fa44dfbe.chunk.css",
+    "main.js": "/2019-2-Track-Frontend-O-Anoshchenko/static/js/main.91082d7d.chunk.js",
+    "main.js.map": "/2019-2-Track-Frontend-O-Anoshchenko/static/js/main.91082d7d.chunk.js.map",
+    "runtime-main.js": "/2019-2-Track-Frontend-O-Anoshchenko/static/js/runtime-main.0e0b52a9.js",
+    "runtime-main.js.map": "/2019-2-Track-Frontend-O-Anoshchenko/static/js/runtime-main.0e0b52a9.js.map",
+    "static/js/2.9885b3a1.chunk.js": "/2019-2-Track-Frontend-O-Anoshchenko/static/js/2.9885b3a1.chunk.js",
+    "static/js/2.9885b3a1.chunk.js.map": "/2019-2-Track-Frontend-O-Anoshchenko/static/js/2.9885b3a1.chunk.js.map",
+    "index.html": "/2019-2-Track-Frontend-O-Anoshchenko/index.html",
+    "precache-manifest.6fda7d40e846881916b38f3edaf2f143.js": "/2019-2-Track-Frontend-O-Anoshchenko/precache-manifest.6fda7d40e846881916b38f3edaf2f143.js",
+    "service-worker.js": "/2019-2-Track-Frontend-O-Anoshchenko/service-worker.js",
+    "static/css/main.fa44dfbe.chunk.css.map": "/2019-2-Track-Frontend-O-Anoshchenko/static/css/main.fa44dfbe.chunk.css.map",
+    "static/js/2.9885b3a1.chunk.js.LICENSE.txt": "/2019-2-Track-Frontend-O-Anoshchenko/static/js/2.9885b3a1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0e0b52a9.js",
+    "static/js/2.9885b3a1.chunk.js",
+    "static/css/main.fa44dfbe.chunk.css",
+    "static/js/main.91082d7d.chunk.js"
+  ]
+}
